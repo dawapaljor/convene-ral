@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Set the base to the subdirectory name so assets load from /second/assets/
-  base: '/second/'
+  base: ''
 })
