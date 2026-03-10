@@ -1,5 +1,5 @@
 
-
+URL: [convene.rightsactionlab.org](https://convene.rightsactionlab.org)
 
 # Convene: Secure Browser-Based Messaging
 
@@ -60,5 +60,3 @@ Convene is an open-source product of HRL, a non-profit 501(c)3 charitable organi
 Development by **Northern Prock**. User & Community Engagement by **Clort**.
 
 ---
-
-

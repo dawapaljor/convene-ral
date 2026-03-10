@@ -36,9 +36,11 @@ export const DEMO_MESSAGES: Message[] = [
 ];
 
 export const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'Security', href: '#security' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Security/Features', href: '#features' },
+  { label: 'How it Works', href: '#' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'About Us', href: '/about' },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

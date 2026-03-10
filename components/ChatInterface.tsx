@@ -7,10 +7,12 @@ const ChatInterface: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const ChatInterface: React.FC = () => {
 
     setMessages(prev => [...prev, newMessage]);
     setInputValue('');
-    
+
     // Simulate reply
     setIsTyping(true);
     setTimeout(() => {
@@ -67,7 +69,7 @@ const ChatInterface: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-[350px] sm:max-w-md mx-auto bg-white rounded-[2.5rem] shadow-2xl border-8 border-slate-900 overflow-hidden flex flex-col h-[600px] transform transition-all duration-500 hover:scale-[1.01]">
-      
+
       {/* Dynamic Island / Notch area (Purely decorative for "Phone" look) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20"></div>
 
@@ -75,18 +77,21 @@ const ChatInterface: React.FC = () => {
       <div className="bg-slate-50 px-4 pt-10 pb-3 border-b border-slate-200 flex flex-col gap-2">
         {/* Fake URL Bar */}
         <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-1.5 shadow-sm">
-            <Lock className="w-3 h-3 text-green-600" />
-            <span className="text-xs text-slate-500 flex-1 text-center font-medium">letsconvene.im/room/roomname</span>
+          <Lock className="w-3 h-3 text-green-600" />
+          <span className="text-xs text-slate-500 flex-1 text-center font-medium">letsconvene.im/room/roomname</span>
         </div>
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar bg-slate-50">
+      <div
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar bg-slate-50 scroll-smooth"
+      >
         <div className="text-center py-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-800 text-[10px] font-medium">
-                <ShieldCheck className="w-3 h-3" />
-                End-to-end encrypted
-            </div>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-800 text-[10px] font-medium">
+            <ShieldCheck className="w-3 h-3" />
+            End-to-end encrypted
+          </div>
         </div>
 
         {messages.map((msg) => {
@@ -107,15 +112,15 @@ const ChatInterface: React.FC = () => {
             <div key={msg.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex gap-2 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                 {msg.avatar && !isUser && (
-                  <img 
-                    src={msg.avatar} 
-                    alt="Avatar" 
-                    className="w-8 h-8 rounded-full self-end shadow-sm border border-white" 
+                  <img
+                    src={msg.avatar}
+                    alt="Avatar"
+                    className="w-8 h-8 rounded-full self-end shadow-sm border border-white"
                   />
                 )}
                 <div className={`group relative px-4 py-2.5 rounded-2xl text-sm leading-relaxed shadow-sm transition-all duration-300
-                  ${isUser 
-                    ? 'bg-brand-600 text-white rounded-br-none' 
+                  ${isUser
+                    ? 'bg-brand-600 text-white rounded-br-none'
                     : 'bg-white text-slate-700 rounded-bl-none border border-slate-100'
                   }
                 `}>
@@ -128,37 +133,36 @@ const ChatInterface: React.FC = () => {
             </div>
           );
         })}
-        
+
         {isTyping && (
           <div className="flex justify-start">
-             <div className="bg-white p-3 rounded-2xl rounded-bl-none border border-slate-100 flex gap-1 items-center h-10 shadow-sm ml-10">
-                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-             </div>
+            <div className="bg-white p-3 rounded-2xl rounded-bl-none border border-slate-100 flex gap-1 items-center h-10 shadow-sm ml-10">
+              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+            </div>
           </div>
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
       <div className="p-3 bg-white border-t border-slate-100">
         <form onSubmit={handleSendMessage} className="flex items-center gap-2">
-           <button type="button" className="p-2 text-slate-400 hover:text-brand-600 transition-colors rounded-full hover:bg-slate-50">
-              <Paperclip size={20} />
-           </button>
-           <div className="flex-1 relative">
-             <input 
-                type="text" 
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Message..." 
-                className="w-full bg-slate-100 border-0 rounded-full py-2.5 px-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all"
-             />
-           </div>
-           <button type="submit" className={`p-2.5 rounded-full transition-all ${inputValue.trim() ? 'bg-brand-600 text-white shadow-md' : 'bg-slate-100 text-slate-400'}`}>
-              <Send size={18} />
-           </button>
+          <button type="button" className="p-2 text-slate-400 hover:text-brand-600 transition-colors rounded-full hover:bg-slate-50">
+            <Paperclip size={20} />
+          </button>
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Message..."
+              className="w-full bg-slate-100 border-0 rounded-full py-2.5 px-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all"
+            />
+          </div>
+          <button type="submit" className={`p-2.5 rounded-full transition-all ${inputValue.trim() ? 'bg-brand-600 text-white shadow-md' : 'bg-slate-100 text-slate-400'}`}>
+            <Send size={18} />
+          </button>
         </form>
       </div>
     </div>

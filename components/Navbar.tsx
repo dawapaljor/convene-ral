@@ -3,16 +3,24 @@ import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { Logo } from './Logo';
 
-const Navbar: React.FC = () => {
+
+interface NavbarProps {
+  onNavigate: (page: 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works') => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed w-full z-50 top-0 start-0 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+          <div
+            onClick={() => onNavigate('home')}
+            className="flex-shrink-0 flex items-center gap-3 cursor-pointer group"
+          >
             <Logo className="h-10 w-10 text-brand-600 group-hover:text-brand-700 transition-colors duration-300" />
             <span className="text-2xl font-bold text-slate-900 tracking-tight group-hover:text-brand-600 transition-colors duration-300">Convene</span>
           </div>
@@ -24,6 +32,26 @@ const Navbar: React.FC = () => {
                 <a
                   key={link.label}
                   href={link.href}
+                  onClick={(e) => {
+                    if (link.label === 'About Us') {
+                      e.preventDefault();
+                      onNavigate('about');
+                    } else if (link.label === 'Security/Features') {
+                      e.preventDefault();
+                      onNavigate('features');
+                    } else if (link.label === 'How it Works') {
+                      e.preventDefault();
+                      onNavigate('how-it-works');
+                    } else if (link.label === 'Pricing') {
+                      e.preventDefault();
+                      onNavigate('pricing');
+                    } else if (link.label === 'FAQ') {
+                      e.preventDefault();
+                      onNavigate('faq');
+                    } else if (link.href === '#') {
+                      e.preventDefault();
+                    }
+                  }}
                   className="text-slate-600 hover:text-brand-600 hover:bg-brand-50 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                 >
                   {link.label}
@@ -62,7 +90,27 @@ const Navbar: React.FC = () => {
                 key={link.label}
                 href={link.href}
                 className="text-slate-600 hover:text-brand-600 block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  if (link.label === 'About Us') {
+                    e.preventDefault();
+                    onNavigate('about');
+                  } else if (link.label === 'Security/Features') {
+                    e.preventDefault();
+                    onNavigate('features');
+                  } else if (link.label === 'How it Works') {
+                    e.preventDefault();
+                    onNavigate('how-it-works');
+                  } else if (link.label === 'Pricing') {
+                    e.preventDefault();
+                    onNavigate('pricing');
+                  } else if (link.label === 'FAQ') {
+                    e.preventDefault();
+                    onNavigate('faq');
+                  } else if (link.href === '#') {
+                    e.preventDefault();
+                  }
+                  setIsOpen(false);
+                }}
               >
                 {link.label}
               </a>
