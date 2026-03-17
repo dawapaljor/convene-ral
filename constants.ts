@@ -40,7 +40,7 @@ export const NAV_LINKS = [
   { label: 'How it Works', href: '#' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'About Us', href: '/about' },
+  // { label: 'About Us', href: '/about' },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

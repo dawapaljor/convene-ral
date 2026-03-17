@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
                 Start a Secure Room <ArrowRight className="w-5 h-5 ml-2" />
               </button>
               <button className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-all shadow-sm w-full sm:w-auto active:scale-95">
-                How it Works
+                <a href="/pricing">Pricing Plan</a>
               </button>
             </div>
 

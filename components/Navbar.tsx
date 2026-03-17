@@ -33,10 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => {
-                    if (link.label === 'About Us') {
-                      e.preventDefault();
-                      onNavigate('about');
-                    } else if (link.label === 'Security/Features') {
+                    if (link.label === 'Security/Features') {
                       e.preventDefault();
                       onNavigate('features');
                     } else if (link.label === 'How it Works') {
@@ -91,10 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 href={link.href}
                 className="text-slate-600 hover:text-brand-600 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={(e) => {
-                  if (link.label === 'About Us') {
-                    e.preventDefault();
-                    onNavigate('about');
-                  } else if (link.label === 'Security/Features') {
+                  if (link.label === 'Security/Features') {
                     e.preventDefault();
                     onNavigate('features');
                   } else if (link.label === 'How it Works') {
