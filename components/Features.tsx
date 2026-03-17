@@ -11,13 +11,23 @@ const Features: React.FC = () => {
           {FEATURES.map((feature, index) => (
             <div
               key={index}
-              className="group p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all duration-300"
+              className="group relative p-8 lg:p-10 bg-white rounded-3xl border border-slate-200/60 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(36,176,186,0.15)] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-600 transition-all duration-300">
-                <feature.icon className="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
+              {/* Subtle top border highlight on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#24b0ba] to-[#a975ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-[#24b0ba]/10 flex items-center justify-center group-hover:bg-[#24b0ba] transition-colors duration-300">
+                  <feature.icon className="w-6 h-6 text-[#24b0ba] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 leading-tight">
+                  {feature.title}
+                </h3>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+              
+              <p className="text-slate-600 leading-relaxed text-base">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
