@@ -30,14 +30,14 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.25] mix-blend-overlay z-20"></div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left: Content */}
           <div className="lg:col-span-6 xl:col-span- flex flex-col justify-center animate-fade-in-up text-center lg:text-left">
 
 
-            <h1 className="text-5xl sm:text-6xl lg:text-[5.5rem] font-black tracking-tight text-slate-900 leading-[1.05] mb-6 drop-shadow-sm">
+            <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-black tracking-tight text-slate-900 leading-[1.05] mb-6 drop-shadow-sm">
               Private<br className="hidden sm:block" />
               conversations<br className="hidden sm:block" />
               <span className="text-blue-600">instantly.</span>
