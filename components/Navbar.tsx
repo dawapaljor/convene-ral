@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { Logo } from './Logo';
+import { DemoModal } from './DemoModal';
+
 
 
 interface NavbarProps {
@@ -10,9 +12,13 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+
 
   return (
-    <nav className="fixed w-full z-50 top-0 start-0 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <>
+      <nav className="fixed w-full z-50 top-0 start-0 bg-white/90 backdrop-blur-md border-b border-gray-100">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
@@ -33,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => {
-                    if (link.label === 'Security/Features') {
+                    if (link.label === 'Features') {
                       e.preventDefault();
                       onNavigate('features');
                     } else if (link.label === 'How it Works') {
@@ -59,10 +65,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 hover:-translate-y-0.5">
-              Start a Room
+            <button 
+              onClick={() => setIsDemoModalOpen(true)}
+              className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 hover:-translate-y-0.5"
+            >
+              Request a Demo
             </button>
           </div>
+
 
           {/* Mobile menu button */}
           <div className="-mr-2 flex md:hidden">
@@ -88,15 +98,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 href={link.href}
                 className="text-slate-600 hover:text-brand-600 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={(e) => {
-                  if (link.label === 'Security/Features') {
+                  if (link.label === 'Features') {
                     e.preventDefault();
                     onNavigate('features');
                   } else if (link.label === 'How it Works') {
                     e.preventDefault();
                     onNavigate('how-it-works');
-                  } else if (link.label === 'Pricing') {
-                    e.preventDefault();
-                    onNavigate('pricing');
+                    // } else if (link.label === 'Pricing') {
+                    //   e.preventDefault();
+                    //   onNavigate('pricing');
                   } else if (link.label === 'FAQ') {
                     e.preventDefault();
                     onNavigate('faq');
@@ -110,14 +120,24 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               </a>
             ))}
             <div className="pt-4 pb-2">
-              <button className="w-full bg-brand-600 text-white font-bold py-3 rounded-lg shadow-md">
-                Start a Room
+              <button 
+                onClick={() => {
+                  setIsDemoModalOpen(true);
+                  setIsOpen(false);
+                }}
+                className="w-full bg-brand-600 text-white font-bold py-3 rounded-lg shadow-md"
+              >
+                Request a Demo
               </button>
             </div>
+
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+      {/* Demo Request Modal - Moved outside nav to avoid backdrop-blur context issues */}
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
+    </>
   );
 };
 

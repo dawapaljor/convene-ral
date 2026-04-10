@@ -36,9 +36,9 @@ export const DEMO_MESSAGES: Message[] = [
 ];
 
 export const NAV_LINKS = [
-  { label: 'Security/Features', href: '#features' },
+  { label: 'Features', href: '#features' },
   { label: 'How it Works', href: '#' },
-  { label: 'Pricing', href: '/pricing' },
+  // { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   // { label: 'About Us', href: '/about' },
 ];

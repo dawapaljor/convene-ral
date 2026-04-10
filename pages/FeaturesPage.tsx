@@ -1,6 +1,8 @@
 import React from 'react';
 import Features from '../components/Features';
 import ComparisonTable from '../components/ComparisonTable';
+import { HowItWorksSection } from '../components/HowItWorksSection';
+
 
 const FeaturesPage: React.FC = () => {
     return (
@@ -17,11 +19,13 @@ const FeaturesPage: React.FC = () => {
             </div>
 
             <Features />
+            <HowItWorksSection />
 
-            <ComparisonTable />
+
+            {/* <ComparisonTable /> */}
 
             {/* Security Deep Dive Section */}
-            <section className="py-20 bg-white">
+            {/* <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="order-2 md:order-1">
@@ -69,7 +73,7 @@ const FeaturesPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };

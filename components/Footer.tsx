@@ -20,12 +20,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Convene</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-md mb-6">
-              Convene is an open-source product of HRL, a non-profit 501(c)3 charitable organization.
-              It serves as a lifeline for human rights defenders, enabling secure documentation and reporting of rights violations.
+              Convene is an open-source product of Rights Action Lab, a non-profit 501(c)3 charitable organization. It serves as a lifeline for human rights defenders, enabling secure documentation and reporting of rights violations.”
             </p>
             <div className="text-xs text-slate-400 space-y-1">
-              <p>Development provided by <strong>Northern Prock</strong>.</p>
-              <p>User & Community Engagement by <strong>Clort</strong>.</p>
+              <p>Development provided by <strong>Guardian Project</strong>.</p>
+              <p>User & Community Engagement by <strong>TibCERT</strong> and <strong>OkThanks</strong>.</p>
             </div>
           </div>
 
@@ -132,7 +131,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-500 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} HRL. All rights reserved.
+            &copy; {new Date().getFullYear()} Rights Action Lab. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" onClick={(e) => e.preventDefault()} className="text-slate-400 hover:text-slate-600 transition-colors">
