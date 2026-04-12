@@ -68,7 +68,7 @@ const ChatInterface: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[350px] sm:max-w-md mx-auto bg-white rounded-[2.5rem] shadow-2xl border-8 border-slate-900 overflow-hidden flex flex-col h-[600px] transform transition-all duration-500 hover:scale-[1.01]">
+    <div className="relative w-full max-w-[320px] sm:max-w-[380px] mx-auto bg-white rounded-[2.5rem] shadow-2xl border-8 border-slate-900 overflow-hidden flex flex-col h-[520px] sm:h-[580px] transform transition-all duration-500 hover:scale-[1.01]">
 
       {/* Dynamic Island / Notch area (Purely decorative for "Phone" look) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20"></div>

@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left: Content */}
-          <div className="lg:col-span-6 xl:col-span- flex flex-col justify-center animate-fade-in-up text-center lg:text-left">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center animate-fade-in-up text-center lg:text-left">
 
 
             <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-black tracking-tight text-slate-900 leading-[1.05] mb-6 drop-shadow-sm">
@@ -73,14 +73,14 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right: Phone Interface Demo */}
-          <div className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center lg:justify-end animate-fade-in-up mt-12 lg:mt-0" style={{ animationDelay: '0.2s' }}>
+          <div className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center lg:justify-end animate-fade-in-up mt-12 lg:mt-0 lg:scale-[0.85] xl:scale-90 origin-right transition-transform duration-500" style={{ animationDelay: '0.2s' }}>
 
             {/* The Phone mockup / Chat Interface */}
             <div className="relative transform rotate-[-4deg] hover:rotate-0 transition-transform duration-500 z-30">
               <ChatInterface />
 
               {/* Floating Glassy element - Left (Participants) */}
-              <div className="absolute -left-8 sm:-left-16 bottom-[25%] sm:bottom-[30%] bg-white/95 backdrop-blur-xl p-3 sm:p-4 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/80 flex items-center gap-3 animate-float z-40">
+              <div className="absolute -left-4 sm:-left-8 bottom-[25%] sm:bottom-[30%] bg-white/95 backdrop-blur-xl p-2.5 sm:p-3 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/80 flex items-center gap-2 sm:gap-3 animate-float z-40">
                 <div className="bg-orange-100 p-2 sm:p-2.5 rounded-full border border-orange-200/50 flex-shrink-0">
                   <Users className="w-5 h-5 text-orange-600" />
                 </div>
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Floating Glassy element - Right (Security) */}
-              <div className="absolute -right-8 sm:-right-16 top-[15%] sm:top-[20%] bg-white/95 backdrop-blur-xl p-3 sm:p-4 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/80 flex items-center gap-3 animate-float z-40" style={{ animationDelay: '1s' }}>
+              <div className="absolute -right-4 sm:-right-8 top-[15%] sm:top-[20%] bg-white/95 backdrop-blur-xl p-2.5 sm:p-3 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/80 flex items-center gap-2 sm:gap-3 animate-float z-40" style={{ animationDelay: '1s' }}>
                 <div className="bg-emerald-100 p-2 sm:p-2.5 rounded-full border border-emerald-200/50 flex-shrink-0">
                   <ShieldCheck className="w-5 h-5 text-emerald-600" />
                 </div>
