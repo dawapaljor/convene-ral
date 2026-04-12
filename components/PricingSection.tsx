@@ -1,10 +1,11 @@
-import React from 'react';
-import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal } from 'lucide-react';
+import React, { useState } from 'react';
+import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal, Zap, ArrowRight } from 'lucide-react';
 
 interface PricingPlan {
     name: string;
     price: string;
-    period?: string;
+    yearlyPrice?: string;
+    period: string;
     description: string;
     features: string[];
     cta: string;
@@ -13,156 +14,221 @@ interface PricingPlan {
 }
 
 export const PricingSection: React.FC = () => {
+    const [isYearly, setIsYearly] = useState(false);
+
     const tiers: PricingPlan[] = [
         {
             name: "Starter",
             price: "$0",
             period: "/month",
-            description: "For individual users and short-term secure messaging.",
+            description: "For activists and individuals needing immediate, secure rooms.",
             features: [
                 "Ephemeral Rooms (24h)",
                 "End-to-End Encryption",
                 "Up to 10 participants",
                 "Browser-based (No install)",
-                "Basic file sharing (5MB)"
+                "Basic file sharing (10MB)"
             ],
-            cta: "Get Started",
+            cta: "Get Started Free",
             highlighted: false,
             icon: MessageSquare
         },
         {
             name: "Community",
-            price: "Custom",
-            period: "",
-            description: "Dedicated resources for high-impact human rights missions.",
+            price: "$19",
+            yearlyPrice: "$15",
+            period: "/month",
+            description: "Dedicated resources for higher-impact missions and organizations.",
             features: [
                 "Unlimited ephemeral rooms",
+                "Permanent rooms available",
                 "Priority Support",
                 "Advanced Security Features",
                 "Self-hosting guidance",
-                "Custom domain integration"
+                "Custom domain integration",
+                "Up to 50 participants"
             ],
-            cta: "Contact Us",
-            highlighted: false,
+            cta: "Start Free Trial",
+            highlighted: true,
             icon: Shield
         },
         {
             name: "Enterprise",
             price: "Custom",
             period: "",
-            description: "Scalable solutions for organizations and large teams.",
+            description: "Scalable solutions for large teams and high-security requirements.",
             features: [
                 "Admin Control Panel",
                 "Team Management",
                 "SLA and Support",
                 "Audit Logs (Optional privacy)",
-                "Dedicated Server Instance"
+                "Dedicated Server Instance",
+                "White-label options",
+                "Custom security audits"
             ],
-            cta: "Talk to Sales",
+            cta: "Contact Sales",
             highlighted: false,
             icon: Terminal
         }
     ];
 
     return (
-        <section className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16 animate-fade-in-up">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                        Plans for Every <span className="text-brand-600">Mission</span>
+        <section className="relative py-24 overflow-hidden bg-white">
+            {/* Background Decorations */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-50 rounded-full blur-[120px] opacity-50"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-50 rounded-full blur-[120px] opacity-50"></div>
+            </div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16 space-y-4 animate-fade-in-up">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-semibold uppercase tracking-wider">
+                        <Zap className="w-3 h-3" />
+                        Simple & Transparent
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+                        Security for Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">Scale</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                        Choose the plan that fits your security needs. All plans include our core end-to-end encryption.
+                    <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                        Whether you're a single activist or a global organization, we have a plan to keep your communications private.
                     </p>
+
+                    {/* Toggle */}
+                    <div className="flex items-center justify-center gap-4 pt-4">
+                        <span className={`text-sm font-medium ${!isYearly ? 'text-slate-900' : 'text-slate-500'}`}>Monthly</span>
+                        <button 
+                            onClick={() => setIsYearly(!isYearly)}
+                            className="relative w-12 h-6 rounded-full bg-slate-200 p-1 transition-colors hover:bg-slate-300"
+                        >
+                            <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isYearly ? 'translate-x-6' : 'translate-x-0'}`}></div>
+                        </button>
+                        <span className={`text-sm font-medium ${isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
+                            Yearly <span className="text-emerald-500 font-bold ml-1">(-20%)</span>
+                        </span>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {tiers.map((tier, idx) => (
                         <div
                             key={idx}
-                            className={`relative bg-white p-8 rounded-3xl border ${tier.highlighted ? 'border-brand-500 ring-2 ring-brand-500/20 shadow-xl' : 'border-slate-200'} transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 overflow-hidden`}
+                            className={`group relative flex flex-col p-8 rounded-[2rem] transition-all duration-500 hover:translate-y-[-8px] ${
+                                tier.highlighted 
+                                ? 'bg-slate-900 text-white shadow-2xl scale-105 z-10' 
+                                : 'bg-white border border-slate-100 shadow-sm hover:shadow-xl'
+                            }`}
                         >
                             {tier.highlighted && (
-                                <div className="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-                                    Most Popular
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-brand-500 to-brand-600 text-white text-[11px] font-bold rounded-full uppercase tracking-widest shadow-lg">
+                                    Recommended
                                 </div>
                             )}
 
-                            <div className="mb-6">
-                                <div className={`w-12 h-12 ${tier.highlighted ? 'bg-brand-500 text-white' : 'bg-brand-50 text-brand-600'} rounded-2xl flex items-center justify-center mb-4`}>
-                                    <tier.icon className="w-6 h-6" />
+                            <div className="mb-8">
+                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300 ${
+                                    tier.highlighted ? 'bg-brand-500/20 text-brand-400' : 'bg-brand-50 text-brand-600'
+                                }`}>
+                                    <tier.icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">{tier.name}</h3>
+                                <h3 className={`text-2xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
+                                    {tier.name}
+                                </h3>
                                 <div className="flex items-baseline gap-1 mb-4">
-                                    <span className="text-3xl font-bold text-slate-900">{tier.price}</span>
-                                    {tier.period && <span className="text-slate-500 text-sm font-medium">{tier.period}</span>}
+                                    <span className={`text-4xl font-black ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
+                                        {isYearly && tier.yearlyPrice ? tier.yearlyPrice : tier.price}
+                                    </span>
+                                    {tier.period && (
+                                        <span className={tier.highlighted ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}>
+                                            {tier.period}
+                                        </span>
+                                    )}
                                 </div>
-                                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                                <p className={`text-sm leading-relaxed ${tier.highlighted ? 'text-slate-400' : 'text-slate-500'}`}>
                                     {tier.description}
                                 </p>
                             </div>
 
-                            <ul className="space-y-4 mb-8">
+                            <div className={`h-px w-full mb-8 ${tier.highlighted ? 'bg-slate-800' : 'bg-slate-100'}`}></div>
+
+                            <ul className="space-y-4 mb-10 flex-grow">
                                 {tier.features.map((feature, fIdx) => (
-                                    <li key={fIdx} className="flex items-start gap-3">
-                                        <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-brand-50 flex items-center justify-center">
-                                            <Check className="w-3 h-3 text-brand-600" />
+                                    <li key={fIdx} className="flex items-center gap-3">
+                                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                                            tier.highlighted ? 'bg-brand-500/10' : 'bg-brand-50'
+                                        }`}>
+                                            <Check className="w-3.5 h-3.5 text-brand-500" />
                                         </div>
-                                        <span className="text-sm text-slate-600">{feature}</span>
+                                        <span className={`text-sm ${tier.highlighted ? 'text-slate-300' : 'text-slate-600'}`}>
+                                            {feature}
+                                        </span>
                                     </li>
                                 ))}
                             </ul>
 
                             <button
-                                className={`w-full py-3.5 rounded-xl font-bold transition-all duration-300 ${tier.highlighted
-                                    ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-lg shadow-brand-500/25'
-                                    : 'bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200'
-                                    }`}
+                                className={`group/btn relative w-full py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden ${
+                                    tier.highlighted
+                                    ? 'bg-brand-600 text-white hover:bg-brand-500'
+                                    : 'bg-slate-900 text-white hover:bg-slate-800'
+                                }`}
                             >
-                                {tier.cta}
+                                <span className="relative z-10">{tier.cta}</span>
+                                <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover/btn:translate-x-1" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000"></div>
                             </button>
                         </div>
                     ))}
                 </div>
 
-                {/* Security Assurance */}
-                <div className="mt-20 p-8 bg-brand-900 rounded-3xl text-center text-white relative overflow-hidden shadow-2xl">
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8">
-                        <div className="text-left max-w-xl">
-                            <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                                <Lock className="w-6 h-6 text-brand-400" /> Security by Architecture
+                {/* Assurance Banner */}
+                <div className="mt-24 relative p-12 rounded-[3rem] bg-gradient-to-br from-slate-900 to-brand-900 text-white overflow-hidden">
+                    <div className="absolute top-0 right-0 w-1/3 h-full overflow-hidden opacity-10">
+                         <div className="w-[500px] h-[500px] border-[50px] border-white rounded-full"></div>
+                    </div>
+                    
+                    <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
+                        <div className="max-w-2xl">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-brand-300 text-xs font-semibold uppercase tracking-wider mb-4">
+                                <Lock className="w-3 h-3" />
+                                Zero Compromise
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                                Privacy is a Human Right, <br/>Not a Feature.
                             </h2>
-                            <p className="text-brand-100/80 leading-relaxed">
-                                Regardless of the plan you choose, Convene never stores your logs, your keys, or your personal metadata. Our security model is based on <strong>Zero Knowledge</strong>.
+                            <p className="text-lg text-slate-300 leading-relaxed">
+                                Regardless of your plan, Convene never stores your logs, your keys, or your personal metadata. Our security model is mathematically proven to be zero-knowledge.
                             </p>
                         </div>
-                        <div className="flex-shrink-0 flex gap-4">
-                            <div className="p-4 bg-white/10 rounded-2xl border border-white/10 text-center">
-                                <Globe className="w-8 h-8 mx-auto mb-2 text-brand-400" />
-                                <div className="text-[10px] font-bold uppercase tracking-tight">Global</div>
-                            </div>
-                            <div className="p-4 bg-white/10 rounded-2xl border border-white/10 text-center">
-                                <Shield className="w-8 h-8 mx-auto mb-2 text-brand-400" />
-                                <div className="text-[10px] font-bold uppercase tracking-tight">Secure</div>
-                            </div>
-                            <div className="p-4 bg-white/10 rounded-2xl border border-white/10 text-center">
-                                <Users className="w-8 h-8 mx-auto mb-2 text-brand-400" />
-                                <div className="text-[10px] font-bold uppercase tracking-tight">Civic</div>
-                            </div>
+                        
+                        <div className="grid grid-cols-3 gap-8">
+                            {[
+                                { icon: Shield, label: "Audited" },
+                                { icon: Globe, label: "Global" },
+                                { icon: Users, label: "Civic" }
+                            ].map((item, i) => (
+                                <div key={i} className="flex flex-col items-center gap-3">
+                                    <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                                        <item.icon className="w-8 h-8 text-brand-400" />
+                                    </div>
+                                    <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{item.label}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    {/* Background pattern */}
-                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
                 </div>
 
-                {/* FAQ Preview */}
-                <div className="mt-20 text-center">
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4">Have questions?</h2>
-                    <p className="text-slate-600 mb-8">Check out our FAQ or contact our support team.</p>
-                    <button className="text-brand-600 font-bold hover:underline transition-all">
-                        <a href='/faq'>View FAQ &rarr;</a>
-                    </button>
+                {/* Final CTA */}
+                <div className="mt-24 text-center">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
+                    <p className="text-slate-600 mb-10">Explore our documentation or reach out to our team of security experts.</p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button className="px-8 py-3 rounded-xl bg-slate-50 text-slate-900 font-bold border border-slate-200 hover:bg-slate-100 transition-all">
+                            Contact Support
+                        </button>
+                        <button className="px-8 py-3 rounded-xl text-brand-600 font-bold hover:gap-3 flex items-center gap-2 group transition-all">
+                            View help center <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

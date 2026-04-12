@@ -51,9 +51,7 @@ const Hero: React.FC = () => {
               <button className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto active:scale-95">
                 Start a Secure Room <ArrowRight className="w-5 h-5 ml-2" />
               </button>
-              <button className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-all shadow-sm w-full sm:w-auto active:scale-95">
-                <a href="/pricing">Pricing Plan</a>
-              </button>
+
             </div>
 
             <div className="mt-10 border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 text-slate-500 text-sm font-medium text-slate-900">

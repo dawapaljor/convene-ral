@@ -24,7 +24,7 @@ const Features: React.FC = () => {
                   {feature.title}
                 </h3>
               </div>
-              
+
               <p className="text-slate-600 leading-relaxed text-base">
                 {feature.description}
               </p>

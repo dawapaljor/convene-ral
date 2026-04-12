@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { Logo } from './Logo';
-import { DemoModal } from './DemoModal';
-
-
 
 interface NavbarProps {
-  onNavigate: (page: 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works') => void;
+  onNavigate: (page: 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security') => void;
+  onRequestDemo: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+const Navbar: React.FC<NavbarProps> = ({ onNavigate, onRequestDemo }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
-
 
   return (
     <>
@@ -39,12 +35,20 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => {
-                    if (link.label === 'Features') {
+                    const id = link.label.toLowerCase().replace(/\s+/g, '-');
+                    const element = document.getElementById(id === 'how-it-works' ? id : id === 'features' ? 'security-features' : id);
+                    
+                    if (element) {
                       e.preventDefault();
-                      onNavigate('features');
-                    } else if (link.label === 'How it Works') {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    } else if (link.label === 'Features' || link.label === 'How it Works') {
                       e.preventDefault();
-                      onNavigate('how-it-works');
+                      onNavigate('home');
+                      // Wait for page to change then scroll
+                      setTimeout(() => {
+                        const targetId = link.label === 'Features' ? 'security-features' : 'how-it-works';
+                        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
                     } else if (link.label === 'Pricing') {
                       e.preventDefault();
                       onNavigate('pricing');
@@ -66,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <button 
-              onClick={() => setIsDemoModalOpen(true)}
+              onClick={onRequestDemo}
               className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 hover:-translate-y-0.5"
             >
               Request a Demo
@@ -98,15 +102,22 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 href={link.href}
                 className="text-slate-600 hover:text-brand-600 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={(e) => {
-                  if (link.label === 'Features') {
+                  const id = link.label.toLowerCase().replace(/\s+/g, '-');
+                  const targetId = id === 'how-it-works' ? id : id === 'features' ? 'security-features' : id;
+                  const element = document.getElementById(targetId);
+
+                  if (element) {
                     e.preventDefault();
-                    onNavigate('features');
-                  } else if (link.label === 'How it Works') {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  } else if (link.label === 'Features' || link.label === 'How it Works') {
                     e.preventDefault();
-                    onNavigate('how-it-works');
-                    // } else if (link.label === 'Pricing') {
-                    //   e.preventDefault();
-                    //   onNavigate('pricing');
+                    onNavigate('home');
+                    setTimeout(() => {
+                      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  } else if (link.label === 'Pricing') {
+                    e.preventDefault();
+                    onNavigate('pricing');
                   } else if (link.label === 'FAQ') {
                     e.preventDefault();
                     onNavigate('faq');
@@ -122,7 +133,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             <div className="pt-4 pb-2">
               <button 
                 onClick={() => {
-                  setIsDemoModalOpen(true);
+                  onRequestDemo();
                   setIsOpen(false);
                 }}
                 className="w-full bg-brand-600 text-white font-bold py-3 rounded-lg shadow-md"
@@ -135,8 +146,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         </div>
       )}
       </nav>
-      {/* Demo Request Modal - Moved outside nav to avoid backdrop-blur context issues */}
-      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </>
   );
 };

@@ -56,7 +56,7 @@ const TermsOfService: React.FC = () => {
                             Last updated: March 10, 2026.
                         </p>
                         <p className="text-sm text-slate-400">
-                            Convene is a project of HRL, a 501(c)3 non-profit organization.
+                            Convene is a project of Rights Action Lab, a non-profit 501(c)3 organization.
                         </p>
                     </div>
                 </div>

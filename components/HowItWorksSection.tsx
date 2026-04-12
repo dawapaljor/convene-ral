@@ -33,11 +33,11 @@ export const HowItWorksSection: React.FC = () => {
         <div className="py-24 bg-white">
             {/* Hero Section */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 animate-fade-in-up">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    Privacy by <span className="text-brand-600">Design</span>
-                </h1>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                    How it <span className="text-brand-600">Works</span>
+                </h2>
                 <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                    Convene is architected to ensure that your conversations remain private, ephemeral, and entirely under your control.
+                    A simple 4-step process to secure your communication without leaving a digital footprint.
                 </p>
             </section>
 

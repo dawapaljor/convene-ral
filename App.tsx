@@ -9,8 +9,10 @@ import FeaturesPage from './pages/FeaturesPage';
 import HowItWorks from './pages/HowItWorks';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Security from './pages/Security';
+import { DemoModal } from './components/DemoModal';
 
-type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms';
+type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security';
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',
@@ -21,6 +23,7 @@ const PAGE_TO_PATH: Record<Page, string> = {
   'how-it-works': '/how-it-works',
   privacy: '/privacy',
   terms: '/terms',
+  security: '/security',
 };
 
 const PATH_TO_PAGE: Record<string, Page> = Object.entries(PAGE_TO_PATH).reduce(
@@ -33,6 +36,7 @@ const App: React.FC = () => {
     const path = window.location.pathname;
     return PATH_TO_PAGE[path] || 'home';
   });
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
   // Handle back/forward buttons
   useEffect(() => {
@@ -58,9 +62,13 @@ const App: React.FC = () => {
     setCurrentPage(page);
   };
 
+  const handleRequestDemo = () => {
+    setIsDemoModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-100 selection:text-brand-900">
-      <Navbar onNavigate={handleNavigate} />
+      <Navbar onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} />
       <main>
         {currentPage === 'home' && <Home />}
         {currentPage === 'about' && <About />}
@@ -70,8 +78,11 @@ const App: React.FC = () => {
         {currentPage === 'how-it-works' && <HowItWorks />}
         {currentPage === 'privacy' && <PrivacyPolicy />}
         {currentPage === 'terms' && <TermsOfService />}
+        {currentPage === 'security' && <Security />}
       </main>
-      <Footer onNavigate={handleNavigate} />
+      <Footer onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} />
+      
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </div>
   );
 };
