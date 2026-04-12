@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Shield, Zap, Users, Globe, Lock, MessageSquare, Terminal } from 'lucide-react';
+import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal } from 'lucide-react';
 
 export const PricingSection: React.FC = () => {
     const tiers = [

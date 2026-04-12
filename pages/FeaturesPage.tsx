@@ -1,6 +1,6 @@
 import React from 'react';
 import Features from '../components/Features';
-import ComparisonTable from '../components/ComparisonTable';
+// import ComparisonTable from '../components/ComparisonTable';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 
 
