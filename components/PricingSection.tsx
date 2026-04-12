@@ -6,6 +6,7 @@ export const PricingSection: React.FC = () => {
         {
             name: "Starter",
             price: "$0",
+            period: "/month",
             description: "For individual users and short-term secure messaging.",
             features: [
                 "Ephemeral Rooms (24h)",
@@ -18,25 +19,10 @@ export const PricingSection: React.FC = () => {
             highlighted: false,
             icon: MessageSquare
         },
-        // {
-        //     name: "Pro",
-        //     price: "$9",
-        //     period: "/month",
-        //     description: "For power users who need persistent space and larger sharing.",
-        //     features: [
-        //         "Persistent Rooms (Custom expiry)",
-        //         "Custom Room IDs",
-        //         "Up to 50 participants",
-        //         "Advanced file sharing (100MB)",
-        //         "Priority room creation"
-        //     ],
-        //     cta: "Get Started Pro",
-        //     highlighted: true,
-        //     icon: Zap
-        // },
         {
             name: "Community",
             price: "Custom",
+            period: "",
             description: "Dedicated resources for high-impact human rights missions.",
             features: [
                 "Unlimited ephemeral rooms",
@@ -52,6 +38,7 @@ export const PricingSection: React.FC = () => {
         {
             name: "Enterprise",
             price: "Custom",
+            period: "",
             description: "Scalable solutions for organizations and large teams.",
             features: [
                 "Admin Control Panel",
