@@ -1,8 +1,19 @@
 import React from 'react';
 import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal } from 'lucide-react';
 
+interface PricingPlan {
+    name: string;
+    price: string;
+    period?: string;
+    description: string;
+    features: string[];
+    cta: string;
+    highlighted: boolean;
+    icon: React.ComponentType<{ className?: string }>;
+}
+
 export const PricingSection: React.FC = () => {
-    const tiers = [
+    const tiers: PricingPlan[] = [
         {
             name: "Starter",
             price: "$0",
