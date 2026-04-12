@@ -1,5 +1,4 @@
 import React from 'react';
-import { Twitter, Github, Globe } from 'lucide-react';
 import { Logo } from './Logo';
 
 interface FooterProps {
@@ -49,7 +48,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo }) => {
           <div>
             <h4 className="text-slate-900 font-semibold mb-4 text-base uppercase tracking-wider">Platform</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><a href="/pricing" onClick={(e) => handleLinkClick(e, 'pricing')} className="hover:text-brand-600 transition-colors">Get your own Convene</a></li>
               <li><a href="/how-it-works" onClick={(e) => handleLinkClick(e, 'home', 'how-it-works')} className="hover:text-brand-600 transition-colors">How it Works</a></li>
               <li><a href="/features" onClick={(e) => handleLinkClick(e, 'home', 'security-features')} className="hover:text-brand-600 transition-colors">Features</a></li>
               <li><a href="/faq" onClick={(e) => handleLinkClick(e, 'faq')} className="hover:text-brand-600 transition-colors">FAQs</a></li>
@@ -72,17 +70,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo }) => {
           <p className="text-slate-400 text-xs mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Rights Action Lab. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="https://github.com/rightsactionlab" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <Github size={18} />
-            </a>
-            <a href="https://twitter.com/rightsaction" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <Twitter size={18} />
-            </a>
-            <a href="https://rightsactionlab.org" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <Globe size={18} />
-            </a>
-          </div>
         </div>
       </div>
     </footer>
