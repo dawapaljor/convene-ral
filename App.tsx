@@ -12,7 +12,7 @@ import TermsOfService from './pages/TermsOfService';
 import Security from './pages/Security';
 import { DemoModal } from './components/DemoModal';
 
-type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security';
+export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security';
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',
@@ -70,7 +70,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-100 selection:text-brand-900">
       <Navbar onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} />
       <main>
-        {currentPage === 'home' && <Home />}
+        {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <About />}
         {currentPage === 'pricing' && <Pricing />}
         {currentPage === 'faq' && <FAQ />}

@@ -1,8 +1,13 @@
 import React from 'react';
 import ChatInterface from './ChatInterface';
 import { ShieldCheck, Users, Globe, ArrowRight } from 'lucide-react';
+import { Page } from '../App';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate: (page: Page) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-slate-50 pt-24 pb-12 lg:pt-0 lg:pb-0">
 
@@ -48,8 +53,11 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mx-auto lg:mx-0">
-              <button className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto active:scale-95">
-                Start a Secure Room <ArrowRight className="w-5 h-5 ml-2" />
+              <button onClick={() => {
+                onNavigate('pricing');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }} className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto active:scale-95">
+                Get your own Convene <ArrowRight className="w-5 h-5 ml-2" />
               </button>
 
             </div>

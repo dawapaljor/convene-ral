@@ -3,11 +3,16 @@ import Hero from '../components/Hero';
 import Features from '../components/Features';
 import { HowItWorksSection } from '../components/HowItWorksSection';
 import Testimonials from '../components/Testimonials';
+import { Page } from '../App';
 
-const Home: React.FC = () => {
+interface HomeProps {
+    onNavigate: (page: Page) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     return (
         <div className="flex flex-col gap-0">
-            <Hero />
+            <Hero onNavigate={onNavigate} />
             
             <div id="security-features">
                 <div className="bg-white pt-24 pb-8">
