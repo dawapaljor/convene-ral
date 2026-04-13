@@ -37,9 +37,9 @@ const Hero: React.FC = () => {
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center animate-fade-in-up text-center lg:text-left">
 
 
-            <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-black tracking-tight text-slate-900 leading-[1.05] mb-6 drop-shadow-sm">
-              Private<br className="hidden sm:block" />
-              conversations<br className="hidden sm:block" />
+            <h1 className="text-4xl sm:text-6xl lg:text-[4.5rem] font-black tracking-tight text-slate-900 leading-[1.05] mb-6 drop-shadow-sm">
+              Private <br className="hidden sm:block" />
+              conversations <br className="hidden sm:block" />
               <span className="text-blue-600">instantly.</span>
             </h1>
 
