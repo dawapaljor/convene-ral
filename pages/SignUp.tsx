@@ -117,7 +117,7 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                             <div className="pt-4">
                                 <label className="block text-sm font-semibold text-slate-700 mb-4 flex items-center gap-2">
                                     <LayoutGrid size={16} className="text-brand-500" />
-                                    Select Your Plan
+                                    Need Convene for
                                 </label>
                                 <div className="grid grid-cols-1 gap-3">
                                     {PLANS.map((plan) => (
@@ -145,7 +145,6 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                                                     {plan.name}
                                                 </span>
                                             </div>
-                                            <span className="text-sm font-bold text-slate-500">{plan.price}</span>
                                         </label>
                                     ))}
                                 </div>
