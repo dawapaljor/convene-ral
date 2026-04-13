@@ -18,16 +18,17 @@ interface PricingPlan {
 
 interface PricingSectionProps {
     onNavigate: (page: Page, plan?: string) => void;
+    onContactUs: () => void;
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) => {
+export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onContactUs }) => {
     const [isYearly, setIsYearly] = useState(false);
 
     const tiers: PricingPlan[] = [
         {
             id: "free",
             name: "Starter",
-            price: "$0",
+            price: "$*",
             period: "/month",
             description: "For activists and individuals needing immediate, secure rooms.",
             features: [
@@ -44,8 +45,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
         {
             id: "pro",
             name: "Community",
-            price: "$19",
-            yearlyPrice: "$15",
+            price: "$299",
+            yearlyPrice: "$2392",
             period: "/month",
             description: "Dedicated resources for higher-impact missions and organizations.",
             features: [
@@ -103,7 +104,19 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                         Whether you're a single activist or a global organization, we have a plan to keep your communications private.
                     </p>
 
-                    {/* Pricing hidden for now */}
+                    {/* Toggle */}
+                    <div className="flex items-center justify-center gap-4 pt-4">
+                        <span className={`text-sm font-medium ${!isYearly ? 'text-slate-900' : 'text-slate-500'}`}>Monthly</span>
+                        <button
+                            onClick={() => setIsYearly(!isYearly)}
+                            className="relative w-12 h-6 rounded-full bg-slate-200 p-1 transition-colors hover:bg-slate-300"
+                        >
+                            <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isYearly ? 'translate-x-6' : 'translate-x-0'}`}></div>
+                        </button>
+                        <span className={`text-sm font-medium ${isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
+                            Yearly <span className="text-emerald-500 font-bold ml-1">(-20%)</span>
+                        </span>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -129,7 +142,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                                 <h3 className={`text-2xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
                                     {tier.name}
                                 </h3>
-                                {/* Price hidden for now */}
+                                <div className="flex items-baseline gap-1 mb-4">
+                                    <span className={`text-4xl font-black ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
+                                        {isYearly && tier.yearlyPrice ? tier.yearlyPrice : tier.price}
+                                    </span>
+                                    {tier.period && (
+                                        <span className={tier.highlighted ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}>
+                                            {tier.period}
+                                        </span>
+                                    )}
+                                </div>
                                 <p className={`text-sm leading-relaxed ${tier.highlighted ? 'text-slate-400' : 'text-slate-500'}`}>
                                     {tier.description}
                                 </p>
@@ -151,7 +173,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                                 ))}
                             </ul>
 
-                             <button
+                            <button
                                 onClick={() => onNavigate('signup', tier.id)}
                                 className={`group/btn relative w-full py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden ${tier.highlighted
                                     ? 'bg-brand-600 text-white hover:bg-brand-500'
@@ -208,12 +230,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                     <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
                     <p className="text-slate-600 mb-10">Explore our documentation or reach out to our team of security experts.</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button className="px-8 py-3 rounded-xl bg-slate-50 text-slate-900 font-bold border border-slate-200 hover:bg-slate-100 transition-all">
+                        <button
+                            onClick={onContactUs}
+                            className="px-8 py-3 rounded-xl bg-slate-50 text-slate-900 font-bold border border-slate-200 hover:bg-slate-100 transition-all"
+                        >
                             Contact Support
                         </button>
-                        <button className="px-8 py-3 rounded-xl text-brand-600 font-bold hover:gap-3 flex items-center gap-2 group transition-all">
-                            View help center <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </button>
+
                     </div>
                 </div>
             </div>
