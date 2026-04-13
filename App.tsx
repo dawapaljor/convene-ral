@@ -10,9 +10,11 @@ import HowItWorks from './pages/HowItWorks';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Security from './pages/Security';
+import SignUp from './pages/SignUp';
 import { DemoModal } from './components/DemoModal';
+import { ContactModal } from './components/ContactModal';
 
-export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security';
+export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security' | 'signup';
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',
@@ -24,6 +26,7 @@ const PAGE_TO_PATH: Record<Page, string> = {
   privacy: '/privacy',
   terms: '/terms',
   security: '/security',
+  signup: '/signup',
 };
 
 const PATH_TO_PAGE: Record<string, Page> = Object.entries(PAGE_TO_PATH).reduce(
@@ -36,7 +39,9 @@ const App: React.FC = () => {
     const path = window.location.pathname;
     return PATH_TO_PAGE[path] || 'home';
   });
+  const [selectedPlan, setSelectedPlan] = useState<string>('free');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Handle back/forward buttons
   useEffect(() => {
@@ -54,16 +59,21 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const handleNavigate = (page: Page) => {
+  const handleNavigate = (page: Page, plan?: string) => {
     const path = PAGE_TO_PATH[page];
     if (window.location.pathname !== path) {
       window.history.pushState(null, '', path);
     }
+    if (plan) setSelectedPlan(plan);
     setCurrentPage(page);
   };
 
   const handleRequestDemo = () => {
     setIsDemoModalOpen(true);
+  };
+
+  const handleContactUs = () => {
+    setIsContactModalOpen(true);
   };
 
   return (
@@ -72,17 +82,19 @@ const App: React.FC = () => {
       <main>
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <About />}
-        {currentPage === 'pricing' && <Pricing />}
+        {currentPage === 'pricing' && <Pricing onNavigate={handleNavigate} />}
         {currentPage === 'faq' && <FAQ />}
         {currentPage === 'features' && <FeaturesPage />}
         {currentPage === 'how-it-works' && <HowItWorks />}
         {currentPage === 'privacy' && <PrivacyPolicy />}
         {currentPage === 'terms' && <TermsOfService />}
         {currentPage === 'security' && <Security />}
+        {currentPage === 'signup' && <SignUp onNavigate={handleNavigate} initialPlan={selectedPlan} />}
       </main>
-      <Footer onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} />
+      <Footer onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} onContactUs={handleContactUs} />
       
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>
   );
 };

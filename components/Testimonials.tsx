@@ -15,8 +15,8 @@ const Testimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((testimonial, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:scale-[1.02] cursor-default"
             >
               <Quote className="absolute top-6 left-6 w-8 h-8 text-brand-100" />
@@ -39,18 +39,16 @@ const Testimonials: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-16 p-8 bg-brand-900 rounded-3xl text-center relative overflow-hidden">
-           <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-           <div className="relative z-10">
-               <h3 className="text-2xl font-bold text-white mb-4">A lifeline for 47% of visits from highly censored regions.</h3>
-               <p className="text-brand-100 max-w-2xl mx-auto mb-8">
-                   Since 2022, Convene visits have nearly doubled each year, empowering users in Tibet, China, and beyond.
-               </p>
-               <button className="bg-white text-brand-900 font-bold py-3 px-8 rounded-full hover:bg-brand-50 transition-colors">
-                   Read the Transparency Report
-               </button>
-           </div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-white mb-4">A lifeline for 47% of visits from highly censored regions.</h3>
+            <p className="text-brand-100 max-w-2xl mx-auto mb-8">
+              Since 2022, Convene visits have nearly doubled each year, empowering users in Tibet, China, and beyond.
+            </p>
+
+          </div>
         </div>
       </div>
     </section>

@@ -13,10 +13,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     return (
         <div className="flex flex-col gap-0">
             <Hero onNavigate={onNavigate} />
-            
+
             <div id="security-features">
                 <div className="bg-white pt-24 pb-8">
-                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
                             Security & <span className="text-brand-600">Features</span>
                         </h2>

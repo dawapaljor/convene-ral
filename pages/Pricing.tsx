@@ -1,10 +1,14 @@
-import React from 'react';
 import { PricingSection } from '../components/PricingSection';
+import { Page } from '../App';
 
-const Pricing: React.FC = () => {
+interface PricingProps {
+    onNavigate: (page: Page, plan?: string) => void;
+}
+
+const Pricing: React.FC<PricingProps> = ({ onNavigate }) => {
     return (
         <div className="min-h-screen bg-white">
-            <PricingSection />
+            <PricingSection onNavigate={onNavigate} />
         </div>
     );
 };

@@ -2,11 +2,12 @@ import React from 'react';
 import { Logo } from './Logo';
 
 interface FooterProps {
-  onNavigate: (page: 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security') => void;
+  onNavigate: (page: any) => void;
   onRequestDemo: () => void;
+  onContactUs: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo }) => {
+const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo, onContactUs }) => {
   const handleLinkClick = (e: React.MouseEvent, page: any, targetId?: string) => {
     e.preventDefault();
     if (targetId) {
@@ -61,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo }) => {
               <li><a href="/privacy" onClick={(e) => handleLinkClick(e, 'privacy')} className="hover:text-brand-600 transition-colors">Privacy Policy</a></li>
               <li><a href="/security" onClick={(e) => handleLinkClick(e, 'security')} className="hover:text-brand-600 transition-colors">Security</a></li>
               <li><a href="/terms" onClick={(e) => handleLinkClick(e, 'terms')} className="hover:text-brand-600 transition-colors">Terms of Service</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); onRequestDemo(); }} className="hover:text-brand-600 transition-colors">Contact</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); onContactUs(); }} className="hover:text-brand-600 transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>

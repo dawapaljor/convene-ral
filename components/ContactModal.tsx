@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 
-interface DemoModalProps {
+interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
+export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -34,10 +34,10 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
         </button>
 
         <div className="p-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">Request a demo</h2>
-          <p className="text-slate-500 mb-6 text-sm">Experience the power of Convene in action. Our team will get back to you shortly.</p>
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">Contact Us</h2>
+          <p className="text-slate-500 mb-6 text-sm">Have a question or need assistance? Our support team is here to help.</p>
 
-          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); alert('Message sent!'); }}>
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1">Name</label>
               <input
@@ -67,18 +67,18 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                 id="organization"
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all placeholder:text-slate-400"
-                placeholder="Organisation Name"
+                placeholder="Organization"
               />
             </div>
 
             <div>
-              <label htmlFor="comment" className="block text-sm font-semibold text-slate-700 mb-1">Comment</label>
+              <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1">Message</label>
               <textarea
-                id="comment"
-                rows={3}
+                id="message"
+                rows={4}
                 required
                 className="w-full px-4 py-2.5 rounded-lg border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all placeholder:text-slate-400 resize-none"
-                placeholder="How can we help your team?"
+                placeholder="How can we help you?"
               />
             </div>
 
@@ -86,7 +86,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
               type="submit"
               className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30 hover:-translate-y-0.5 mt-2"
             >
-              Submit Request
+              Send Message
             </button>
           </form>
         </div>

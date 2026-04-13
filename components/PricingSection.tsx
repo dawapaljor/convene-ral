@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal, Zap, ArrowRight } from 'lucide-react';
 
+import { Page } from '../App';
+
 interface PricingPlan {
+    id: string;
     name: string;
     price: string;
     yearlyPrice?: string;
@@ -13,11 +16,16 @@ interface PricingPlan {
     icon: React.ComponentType<{ className?: string }>;
 }
 
-export const PricingSection: React.FC = () => {
+interface PricingSectionProps {
+    onNavigate: (page: Page, plan?: string) => void;
+}
+
+export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) => {
     const [isYearly, setIsYearly] = useState(false);
 
     const tiers: PricingPlan[] = [
         {
+            id: "free",
             name: "Starter",
             price: "$0",
             period: "/month",
@@ -29,11 +37,12 @@ export const PricingSection: React.FC = () => {
                 "Browser-based (No install)",
                 "Basic file sharing (10MB)"
             ],
-            cta: "Get Started Free",
+            cta: "Get Started ",
             highlighted: false,
             icon: MessageSquare
         },
         {
+            id: "pro",
             name: "Community",
             price: "$19",
             yearlyPrice: "$15",
@@ -48,11 +57,12 @@ export const PricingSection: React.FC = () => {
                 "Custom domain integration",
                 "Up to 50 participants"
             ],
-            cta: "Start Free Trial",
+            cta: "Get Started ",
             highlighted: true,
             icon: Shield
         },
         {
+            id: "enterprise",
             name: "Enterprise",
             price: "Custom",
             period: "",
@@ -66,7 +76,7 @@ export const PricingSection: React.FC = () => {
                 "White-label options",
                 "Custom security audits"
             ],
-            cta: "Contact Sales",
+            cta: "Get Started ",
             highlighted: false,
             icon: Terminal
         }
@@ -87,7 +97,7 @@ export const PricingSection: React.FC = () => {
                         Simple & Transparent
                     </div>
                     <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
-                        Security for Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">Scale</span>
+                        Get your own <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">Convene</span>
                     </h1>
                     <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
                         Whether you're a single activist or a global organization, we have a plan to keep your communications private.
@@ -96,7 +106,7 @@ export const PricingSection: React.FC = () => {
                     {/* Toggle */}
                     <div className="flex items-center justify-center gap-4 pt-4">
                         <span className={`text-sm font-medium ${!isYearly ? 'text-slate-900' : 'text-slate-500'}`}>Monthly</span>
-                        <button 
+                        <button
                             onClick={() => setIsYearly(!isYearly)}
                             className="relative w-12 h-6 rounded-full bg-slate-200 p-1 transition-colors hover:bg-slate-300"
                         >
@@ -112,11 +122,10 @@ export const PricingSection: React.FC = () => {
                     {tiers.map((tier, idx) => (
                         <div
                             key={idx}
-                            className={`group relative flex flex-col p-8 rounded-[2rem] transition-all duration-500 hover:translate-y-[-8px] ${
-                                tier.highlighted 
-                                ? 'bg-slate-900 text-white shadow-2xl scale-105 z-10' 
+                            className={`group relative flex flex-col p-8 rounded-[2rem] transition-all duration-500 hover:translate-y-[-8px] ${tier.highlighted
+                                ? 'bg-slate-900 text-white shadow-2xl scale-105 z-10'
                                 : 'bg-white border border-slate-100 shadow-sm hover:shadow-xl'
-                            }`}
+                                }`}
                         >
                             {tier.highlighted && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-brand-500 to-brand-600 text-white text-[11px] font-bold rounded-full uppercase tracking-widest shadow-lg">
@@ -125,9 +134,8 @@ export const PricingSection: React.FC = () => {
                             )}
 
                             <div className="mb-8">
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300 ${
-                                    tier.highlighted ? 'bg-brand-500/20 text-brand-400' : 'bg-brand-50 text-brand-600'
-                                }`}>
+                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300 ${tier.highlighted ? 'bg-brand-500/20 text-brand-400' : 'bg-brand-50 text-brand-600'
+                                    }`}>
                                     <tier.icon className="w-7 h-7" />
                                 </div>
                                 <h3 className={`text-2xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
@@ -153,9 +161,8 @@ export const PricingSection: React.FC = () => {
                             <ul className="space-y-4 mb-10 flex-grow">
                                 {tier.features.map((feature, fIdx) => (
                                     <li key={fIdx} className="flex items-center gap-3">
-                                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
-                                            tier.highlighted ? 'bg-brand-500/10' : 'bg-brand-50'
-                                        }`}>
+                                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${tier.highlighted ? 'bg-brand-500/10' : 'bg-brand-50'
+                                            }`}>
                                             <Check className="w-3.5 h-3.5 text-brand-500" />
                                         </div>
                                         <span className={`text-sm ${tier.highlighted ? 'text-slate-300' : 'text-slate-600'}`}>
@@ -165,12 +172,12 @@ export const PricingSection: React.FC = () => {
                                 ))}
                             </ul>
 
-                            <button
-                                className={`group/btn relative w-full py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden ${
-                                    tier.highlighted
+                             <button
+                                onClick={() => onNavigate('signup', tier.id)}
+                                className={`group/btn relative w-full py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden ${tier.highlighted
                                     ? 'bg-brand-600 text-white hover:bg-brand-500'
                                     : 'bg-slate-900 text-white hover:bg-slate-800'
-                                }`}
+                                    }`}
                             >
                                 <span className="relative z-10">{tier.cta}</span>
                                 <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover/btn:translate-x-1" />
@@ -183,9 +190,9 @@ export const PricingSection: React.FC = () => {
                 {/* Assurance Banner */}
                 <div className="mt-24 relative p-12 rounded-[3rem] bg-gradient-to-br from-slate-900 to-brand-900 text-white overflow-hidden">
                     <div className="absolute top-0 right-0 w-1/3 h-full overflow-hidden opacity-10">
-                         <div className="w-[500px] h-[500px] border-[50px] border-white rounded-full"></div>
+                        <div className="w-[500px] h-[500px] border-[50px] border-white rounded-full"></div>
                     </div>
-                    
+
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
                         <div className="max-w-2xl">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-brand-300 text-xs font-semibold uppercase tracking-wider mb-4">
@@ -193,13 +200,13 @@ export const PricingSection: React.FC = () => {
                                 Zero Compromise
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Privacy is a Human Right, <br/>Not a Feature.
+                                Privacy is a Human Right, <br />Not a Feature.
                             </h2>
                             <p className="text-lg text-slate-300 leading-relaxed">
                                 Regardless of your plan, Convene never stores your logs, your keys, or your personal metadata. Our security model is mathematically proven to be zero-knowledge.
                             </p>
                         </div>
-                        
+
                         <div className="grid grid-cols-3 gap-8">
                             {[
                                 { icon: Shield, label: "Audited" },
