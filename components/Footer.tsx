@@ -3,11 +3,10 @@ import { Logo } from './Logo';
 
 interface FooterProps {
   onNavigate: (page: any) => void;
-  onRequestDemo: () => void;
   onContactUs: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onNavigate, onRequestDemo, onContactUs }) => {
+const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
   const handleLinkClick = (e: React.MouseEvent, page: any, targetId?: string) => {
     e.preventDefault();
     if (targetId) {
