@@ -91,7 +91,7 @@ const App: React.FC = () => {
         {currentPage === 'security' && <Security />}
         {currentPage === 'signup' && <SignUp onNavigate={handleNavigate} initialPlan={selectedPlan} />}
       </main>
-      <Footer onNavigate={handleNavigate} onRequestDemo={handleRequestDemo} onContactUs={handleContactUs} />
+      <Footer onNavigate={handleNavigate} onContactUs={handleContactUs} />
       
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
