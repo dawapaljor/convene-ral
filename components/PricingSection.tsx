@@ -45,7 +45,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
             name: "Community",
             price: "$299",
             yearlyPrice: "$2392",
-            period: "/month",
+            period: "/Year",
             description: "Dedicated resources for higher-impact missions and organizations.",
             features: [
                 "Unlimited ephemeral rooms",
