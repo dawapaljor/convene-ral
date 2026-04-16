@@ -47,7 +47,7 @@ const TermsOfService: React.FC = () => {
                             <Gavel className="w-6 h-6 text-brand-600" /> 04. Open Source & Contributions
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a community-driven platform built by the HRL mission.
+                            Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a community-driven platform built by the RAL mission.
                         </p>
                     </section>
 
