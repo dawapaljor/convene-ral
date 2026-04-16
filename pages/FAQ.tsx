@@ -9,10 +9,7 @@ const FAQ: React.FC = () => {
             title: "General",
             icon: HelpCircle,
             questions: [
-                {
-                    q: "What is Convene?",
-                    a: "Convene is a secure, browser-based messaging platform designed for human rights defenders, journalists, and anyone needing ephemeral communication without leaving a digital footprint."
-                },
+               
                 {
                     q: "Is Convene really free?",
                     a: "Yes, our basic ephemeral rooms are completely free. We also offer specialized plans for NGOs and activists to support our mission-driven work."
@@ -142,12 +139,10 @@ const FAQ: React.FC = () => {
                     <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
                     <p className="text-slate-600 mb-8">We're here to help you stay safe and secure.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
-                            Contact Support
-                        </button>
-                        <button className="bg-white text-slate-900 font-bold py-3 px-8 rounded-full border border-slate-200 hover:bg-slate-50 transition-all">
-                            Documentation
-                        </button>
+                            <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
+                                Contact Support
+                            </button>
+                       
                     </div>
                 </div>
             </div>

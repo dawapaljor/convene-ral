@@ -88,7 +88,7 @@ const App: React.FC = () => {
         {currentPage === 'how-it-works' && <HowItWorks />}
         {currentPage === 'privacy' && <PrivacyPolicy />}
         {currentPage === 'terms' && <TermsOfService />}
-        {currentPage === 'security' && <Security />}
+        {currentPage === 'security' && <Security onContactUs={handleContactUs} />}
         {currentPage === 'signup' && <SignUp onNavigate={handleNavigate} initialPlan={selectedPlan} />}
       </main>
       <Footer onNavigate={handleNavigate} onContactUs={handleContactUs} />

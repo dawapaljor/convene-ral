@@ -68,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-xs mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Rights Action Lab. All rights reserved.
+            &copy; {new Date().getFullYear()} Rights Action Lab Inc. All rights reserved.
           </p>
         </div>
       </div>

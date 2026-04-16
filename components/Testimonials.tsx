@@ -43,9 +43,9 @@ const Testimonials: React.FC = () => {
         <div className="mt-16 p-8 bg-brand-900 rounded-3xl text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
           <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-4">A lifeline for 47% of visits from highly censored regions.</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">A lifeline for human rights activists.</h3>
             <p className="text-brand-100 max-w-2xl mx-auto mb-8">
-              Since 2022, Convene visits have nearly doubled each year, empowering users in Tibet, China, and beyond.
+              Since 2022, Convene visits have nearly doubled each year.
             </p>
 
           </div>

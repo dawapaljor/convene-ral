@@ -1,7 +1,11 @@
 import React from 'react';
 import { Shield, Lock, EyeOff, Server, HardDrive, RefreshCcw, Search, Users, ExternalLink, Mail, Zap, Trash2 } from 'lucide-react';
 
-const Security: React.FC = () => {
+interface SecurityProps {
+    onContactUs: () => void;
+}
+
+const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
     return (
         <div className="pt-24 pb-20 bg-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -159,7 +163,7 @@ const Security: React.FC = () => {
                         <Shield className="w-6 h-6 text-brand-600 shrink-0 mt-1" />
                         <div>
                             <h3 className="font-bold">Rights Defender Centered</h3>
-                            <p className="text-slate-600">Collaborating deeply with leading human rights and humanitarian organizations to uphold human dignity. Learn more at Guardian Project.</p>
+                            <p className="text-slate-600">Collaborating deeply with leading human rights and humanitarian organizations to uphold human dignity.</p>
                         </div>
                     </div>
                 </div>
@@ -171,12 +175,13 @@ const Security: React.FC = () => {
                         We’ll work with you to customize, brand, and deploy an instance of the service. All code and infrastructure is open-source and easy to customize.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-                         <a href="mailto:info@rightsactionlab.org" className="bg-white text-brand-600 px-8 py-3 rounded-xl font-bold hover:bg-brand-50 transition-colors flex items-center gap-2">
+                         <button
+                            type="button"
+                            onClick={onContactUs}
+                            className="bg-white text-brand-600 px-8 py-3 rounded-xl font-bold hover:bg-brand-50 transition-colors flex items-center gap-2"
+                         >
                             <Mail className="w-4 h-4" /> Contact Us
-                        </a>
-                        <a href="https://guardianproject.info" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">
-                            About the Product Team
-                        </a>
+                        </button>
                     </div>
                     {/* Background decoration */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>

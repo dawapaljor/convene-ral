@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Check, Shield, Users, Globe, Lock, MessageSquare, Terminal, Zap, ArrowRight } from 'lucide-react';
 
 import { Page } from '../App';
@@ -22,17 +22,15 @@ interface PricingSectionProps {
 }
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onContactUs }) => {
-    const [isYearly, setIsYearly] = useState(false);
-
     const tiers: PricingPlan[] = [
         {
             id: "free",
             name: "Starter",
-            price: "$*",
-            period: "/month",
+            price: "Free",
+            period: "",
             description: "For activists and individuals needing immediate, secure rooms.",
             features: [
-                "Ephemeral Rooms (24h)",
+                "Disappearing messages (24 hours) ",
                 "End-to-End Encryption",
                 "Up to 10 participants",
                 "Browser-based (No install)",
@@ -104,19 +102,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                         Whether you're a single activist or a global organization, we have a plan to keep your communications private.
                     </p>
 
-                    {/* Toggle */}
-                    <div className="flex items-center justify-center gap-4 pt-4">
-                        <span className={`text-sm font-medium ${!isYearly ? 'text-slate-900' : 'text-slate-500'}`}>Monthly</span>
-                        <button
-                            onClick={() => setIsYearly(!isYearly)}
-                            className="relative w-12 h-6 rounded-full bg-slate-200 p-1 transition-colors hover:bg-slate-300"
-                        >
-                            <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${isYearly ? 'translate-x-6' : 'translate-x-0'}`}></div>
-                        </button>
-                        <span className={`text-sm font-medium ${isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
-                            Yearly <span className="text-emerald-500 font-bold ml-1">(-20%)</span>
-                        </span>
-                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -144,7 +129,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                                 </h3>
                                 <div className="flex items-baseline gap-1 mb-4">
                                     <span className={`text-4xl font-black ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
-                                        {isYearly && tier.yearlyPrice ? tier.yearlyPrice : tier.price}
+                                        {tier.yearlyPrice || tier.price}
                                     </span>
                                     {tier.period && (
                                         <span className={tier.highlighted ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}>

@@ -45,7 +45,7 @@ export const NAV_LINKS = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "I am currently in a Convene room with over 850 guests... it’s a great tool for us to not only share news articles inside [redacted] but also do outreach beyond Telegram/WeChat.",
+    quote: "I am currently in a Convene room with over 850 guests... it’s a great tool for us to not only share news articles but also do outreach beyond Telegram/WeChat.",
     author: "Human Rights Trainer",
     role: "Secure Communications Lead"
   },
