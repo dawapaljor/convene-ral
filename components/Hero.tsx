@@ -49,8 +49,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 drop-shadow-sm">
-              Browser-based, ephemeral, and encrypted communication with Signal-grade security. Used by human rights defenders to share information safely in censored environments.
+            Browser-based, ephemeral, and encrypted communication with Signal-grade security. Join or create a room to share information safely, even in censored environments.
             </p>
+            <p className='text-sm sm:text-sm text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 drop-shadow-sm'>
+              Built from the ground up to protect your privacy in the digital age.
+              </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mx-auto lg:mx-0">
               <button onClick={() => {
@@ -59,8 +62,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               }} className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto active:scale-95">
                 Get your own Convene <ArrowRight className="w-5 h-5 ml-2" />
               </button>
-
+             
             </div>
+            
 
             <div className="mt-10 border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 text-slate-500 text-sm font-medium text-slate-900">
               <div className="flex items-center gap-2 ">

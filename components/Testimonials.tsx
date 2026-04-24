@@ -48,9 +48,9 @@ const Testimonials: React.FC = () => {
           
             </div>
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-brand-100 text-white my-4">A lifeline for human rights activists.</h3>
+                <h3 className="text-2xl font-bold text-brand-100 text-white my-4">A lifeline for human rights defenders and activists.</h3>
                 <p className="text-brand-100 max-w-2xl mx-auto mb-8">
-                  Since 2022, Convene visits have nearly doubled each year.
+                  Over 100,000 users have accessed Convene rooms from censored environments since 2022
                 </p>
 
               </div>

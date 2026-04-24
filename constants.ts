@@ -47,7 +47,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote: "I am currently in a Convene room with over 850 guests... it’s a great tool for us to not only share news articles but also do outreach beyond Telegram/WeChat.",
     author: "Human Rights Trainer",
-    role: "Secure Communications Lead"
+    role: ""
   },
   {
     quote: "We need secure places for our work. Could this platform be an answer? I believe that yes it is.",
@@ -55,7 +55,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Middle East Region"
   },
   {
-    quote: "This tool is helpful for journalists. It gives access to important information that can be shared outside Tibet. It’s good to have a secure platform like this.",
+    quote: "This tool is helpful for journalists. It gives access to important information that can be shared outside [place redacted]. It’s good to have a secure platform like this.",
     author: "Journalist",
     role: "International Press"
   }

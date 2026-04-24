@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Lock, EyeOff, Server, HardDrive, RefreshCcw, Search, Users, ExternalLink, Mail, Zap, Trash2 } from 'lucide-react';
+import { Shield, Lock, EyeOff, Server, HardDrive, RefreshCcw, Search, Users, ExternalLink, Mail, Zap, Trash2, User, Recycle, RecycleIcon, Trash, ShieldEllipsis } from 'lucide-react';
 
 interface SecurityProps {
     onContactUs: () => void;
@@ -26,24 +26,24 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                 {/* Section: Privacy-Centered Simplified */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                        <Trash2 className="w-8 h-8 text-brand-600 mb-4" />
+                        <h3 className="font-bold text-slate-900 mb-2">Self-Destructing</h3>
+                        <p className="text-sm text-slate-500 leading-relaxed">
+                        Easily delete rooms, wipe messages, or all information from the app with one tap.
+                        </p>
+                    </div>
+                    <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                         <Users className="w-8 h-8 text-brand-600 mb-4" />
-                        <h3 className="font-bold text-slate-900 mb-2">Free to Be You</h3>
+                        <h3 className="font-bold text-slate-900 mb-2"> Private Connections</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                            Represented by account IDs and QR codes. Connect in seconds by link or scan.
+                        Free to be you - we protect your identity. No email or phone number needed. Automated usernames promote anonymity.
                         </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                        <EyeOff className="w-8 h-8 text-brand-600 mb-4" />
-                        <h3 className="font-bold text-slate-900 mb-2">No Strings Attached</h3>
+                        <ShieldEllipsis className="w-8 h-8 text-brand-600 mb-4" />
+                        <h3 className="font-bold text-slate-900 mb-2">Rights Centered</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                            No email or phone number needed. Automated usernames encourage pseudonyms.
-                        </p>
-                    </div>
-                    <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                        <Search className="w-8 h-8 text-brand-600 mb-4" />
-                        <h3 className="font-bold text-slate-900 mb-2">No Data Mining</h3>
-                        <p className="text-sm text-slate-500 leading-relaxed">
-                            We don't mine for data. GDPR compliant processing for legitimate purposes only.
+                        Designed and deployed in collaboration with human rights defenders, digital security experts and rights-centered organizations.
                         </p>
                     </div>
                 </div>
@@ -143,36 +143,13 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                     </div>
                 </div>
 
-                {/* Final Callouts */}
-                <div className="space-y-8 mb-20">
-                     <div className="flex items-start gap-4">
-                        <Trash2 className="w-6 h-6 text-brand-600 shrink-0 mt-1" />
-                        <div>
-                            <h3 className="font-bold">Self-Destructing</h3>
-                            <p className="text-slate-600">Easily delete rooms, wipe messages, or all information from the app with one tap.</p>
-                        </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                        <Users className="w-6 h-6 text-brand-600 shrink-0 mt-1" />
-                        <div>
-                            <h3 className="font-bold">Trusted Relationships</h3>
-                            <p className="text-slate-600">Real identities aren’t linked. We deploy various methods for users to be confident that connections are who they expect.</p>
-                        </div>
-                    </div>
-                     <div className="flex items-start gap-4">
-                        <Shield className="w-6 h-6 text-brand-600 shrink-0 mt-1" />
-                        <div>
-                            <h3 className="font-bold">Rights Defender Centered</h3>
-                            <p className="text-slate-600">Collaborating deeply with leading human rights and humanitarian organizations to uphold human dignity.</p>
-                        </div>
-                    </div>
-                </div>
+
 
                 {/* Contact Banner */}
                 <div className="p-10 rounded-[2.5rem] bg-brand-600 text-white text-center relative overflow-hidden">
                     <h2 className="text-3xl font-bold mb-4 relative z-10">Make it your own.</h2>
                     <p className="text-brand-100 mb-8 max-w-xl mx-auto relative z-10">
-                        We’ll work with you to customize, brand, and deploy an instance of the service. All code and infrastructure is open-source and easy to customize.
+                    Whether you're an individual or global organization, we can customize Convene to suit your security and privacy needs.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
                          <button

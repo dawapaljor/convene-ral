@@ -11,7 +11,7 @@ export const HowItWorksSection: React.FC = () => {
         },
         {
             title: "Share the Link",
-            description: "Send the unique room link to your recipients via any channel. The link is your only key.",
+            description: "Send the unique room link to your recipients via any channel. The link is the only key to open the room.",
             icon: Share2,
             color: "bg-purple-500"
         },

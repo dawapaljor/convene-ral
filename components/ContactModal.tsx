@@ -61,7 +61,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             </div>
 
             <div>
-              <label htmlFor="organization" className="block text-sm font-semibold text-slate-700 mb-1">Organization</label>
+              <label htmlFor="organization" className="block text-sm font-semibold text-slate-700 mb-1">Organization (Optional)</label>
               <input
                 type="text"
                 id="organization"
