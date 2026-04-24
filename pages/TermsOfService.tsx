@@ -20,7 +20,7 @@ const TermsOfService: React.FC = () => {
                             <Heart className="w-6 h-6 text-brand-600" /> 01. Intended Use
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is a platform to facilitate and support secure communication, documentation, and coordination for individuals and groups engaged in human rights work, journalism, and civil society initiatives. By using Convene, you agree to conduct your activities in a manner that upholds the rights, safety, and dignity of others.
+                        Convene is a platform to facilitate and support secure communication, documentation, and coordination for individuals and groups engaged in human rights work, journalism, and civil society initiatives. By using Convene, you agree to conduct your activities in a manner that upholds the rights, safety, and dignity of others.
                         </p>
                     </section>
 
@@ -29,7 +29,7 @@ const TermsOfService: React.FC = () => {
                             <ShieldCheck className="w-6 h-6 text-brand-600" /> 02. No Warranty
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is provided "as is" without warranty of any kind. While we strive for absolute security through our architecture, users should always use situational awareness when communicating in high-risk environments.
+                        Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
                         </p>
                     </section>
 
@@ -38,7 +38,7 @@ const TermsOfService: React.FC = () => {
                             <Shield className="w-6 h-6 text-brand-600" /> 03. Human Rights Safeguard
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                           Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
+                        Convene recognizes that in some jurisdictions, human rights activities—including civil resistance , documentation of abuses, and communication among civil society actors—may be restricted or penalized under repressive  laws.
                         </p>
                         <p className='text-slate-600 leading-relaxed text-lg'>Accordingly, these guidelines are not intended to prohibit, restrict, or limit:</p>
                         <p className='text-slate-600 leading-relaxed text-lg'>

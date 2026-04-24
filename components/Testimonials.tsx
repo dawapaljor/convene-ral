@@ -39,17 +39,22 @@ const Testimonials: React.FC = () => {
             </div>
           ))}
         </div>
+          
+        <div className="mt-16 p-8 bg-gradient-to-br from-slate-900 to-brand-900 rounded-3xl text-center relative overflow-hidden ">
+        <div className="absolute top-0 right-0 w-1/3 h-full overflow-hidden opacity-10">
+                        <div className="w-[500px] h-[700px] border-[50px] border-white rounded-full"></div>
+                    </div>
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          
+            </div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-brand-100 text-white my-4">A lifeline for human rights activists.</h3>
+                <p className="text-brand-100 max-w-2xl mx-auto mb-8">
+                  Since 2022, Convene visits have nearly doubled each year.
+                </p>
 
-        <div className="mt-16 p-8 bg-brand-900 rounded-3xl text-center relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-4">A lifeline for human rights activists.</h3>
-            <p className="text-brand-100 max-w-2xl mx-auto mb-8">
-              Since 2022, Convene visits have nearly doubled each year.
-            </p>
-
-          </div>
-        </div>
+              </div>
+            </div>
       </div>
     </section>
   );

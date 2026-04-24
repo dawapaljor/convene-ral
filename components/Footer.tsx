@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
               <span className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Convene</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
-              An open-source product of Rights Action Lab, a non-profit 501(c)3 organization. Empowering human rights defenders with secure, ephemeral communication.
+              An open-source product of Rights Action Lab Inc, a non-profit 501(c)3 organization. Empowering human rights defenders with secure, ephemeral communication.
             </p>
             <div className="text-xs text-slate-400 space-y-1">
               <p>Development by <strong>Guardian Project</strong>.</p>

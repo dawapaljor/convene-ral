@@ -11,13 +11,26 @@ const FAQ: React.FC = () => {
             questions: [
                
                 {
+                    q: "Can we self-host Convene?",
+                    a: "Yes, our Community and Enterprise plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
+                },
+                {
                     q: "Is Convene really free?",
                     a: "Yes, our basic ephemeral rooms are completely free. We also offer specialized plans for NGOs and activists to support our mission-driven work."
                 },
                 {
                     q: "Do I need to create an account?",
                     a: "No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link."
-                }
+                },
+                {
+                    q: "How can my organization use Convene?",
+                    a: "Convene is ideal for sensitive field operations, coordination, and secure reporting. Our Community and Enterprise  plan provides dedicated support and advanced security features."
+                },
+                {
+                    q: "Can I use it on my phone?",
+                    a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
+                },
+                
             ]
         },
         {
@@ -25,17 +38,14 @@ const FAQ: React.FC = () => {
             icon: Shield,
             questions: [
                 {
-                    q: "How is my data protected?",
-                    a: "We use Signal-grade end-to-end encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients."
+                    q: "What happens if a room link is leaked?",
+                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans"
                 },
                 {
                     q: "Do you keep any logs?",
-                    a: "We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers."
+                    a: "We do not store any message logs, IP addresses, or metadata. Once a room is deleted (destroyed), all associated data is permanently wiped from our servers."
                 },
-                {
-                    q: "What happens if a room link is leaked?",
-                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans."
-                }
+                
             ]
         },
         {
@@ -46,30 +56,14 @@ const FAQ: React.FC = () => {
                     q: "Do I need to install an app?",
                     a: "No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required."
                 },
-                {
-                    q: "Can I use it on my phone?",
-                    a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
-                },
+                
                 {
                     q: "What is the participant limit?",
                     a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
                 }
             ]
         },
-        {
-            title: "NGO & Activists",
-            icon: Users,
-            questions: [
-                {
-                    q: "How can my organization use Convene?",
-                    a: "Convene is ideal for sensitive field operations, coordination, and secure reporting. Our NGO/Activist plan provides dedicated support and advanced security features."
-                },
-                {
-                    q: "Can we self-host Convene?",
-                    a: "Yes, our NGO/Activist plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
-                }
-            ]
-        }
+     
     ];
 
     const toggleAccordion = (index: number) => {

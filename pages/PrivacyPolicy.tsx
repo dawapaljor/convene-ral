@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
                         Privacy <span className="text-brand-600">Policy</span>
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                        Convene is architected to be incapable of violating your privacy. We don't just protect your data; we ensure we never have it.
+                    We don't just protect your data; we ensure we never have it.
                     </p>
                 </div>
 
