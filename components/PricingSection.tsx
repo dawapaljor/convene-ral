@@ -22,6 +22,17 @@ interface PricingSectionProps {
 }
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onContactUs }) => {
+    const [isYearly, setIsYearly] = React.useState(false);
+
+    const calculateSavings = (monthlyPrice: string, yearlyPrice?: string): number | null => {
+        if (!yearlyPrice) return null;
+        const monthly = parseFloat(monthlyPrice.replace('$', '').replace(',', ''));
+        const yearly = parseFloat(yearlyPrice.replace('$', '').replace(',', ''));
+        if (isNaN(monthly) || isNaN(yearly)) return null;
+        const annualCost = monthly * 12;
+        return Math.round(((annualCost - yearly) / annualCost) * 100);
+    };
+
     const tiers: PricingPlan[] = [
         {
             id: "free",
@@ -43,9 +54,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
         {
             id: "pro",
             name: "Community",
-            price: "$299",
-            yearlyPrice: "$2392",
-            period: "/Year",
+            price: "$200",
+            yearlyPrice: "$2000",
+            period: "/Monthly",
             description: "Dedicated resources for higher-impact missions and organizations.",
             features: [
                 "Unlimited ephemeral rooms",
@@ -102,6 +113,39 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                         Whether you're a single activist or a global organization, we have a plan to keep your communications private.
                     </p>
 
+                    {/* Monthly/Yearly Toggle */}
+                    <div className="flex justify-center items-center gap-4 mt-8">
+                        <span className={`text-sm font-semibold ${!isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
+                            Monthly
+                        </span>
+                        <button
+                            onClick={() => setIsYearly(!isYearly)}
+                            className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${
+                                isYearly ? 'bg-brand-600' : 'bg-slate-300'
+                            }`}
+                        >
+                            <div
+                                className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-transform duration-300 ${
+                                    isYearly ? 'translate-x-8' : 'translate-x-1'
+                                }`}
+                            ></div>
+                        </button>
+                        <span className={`text-sm font-semibold ${isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
+                            Yearly
+                        </span>
+                        {isYearly && (
+                            (() => {
+                                const communityTier = tiers.find(t => t.id === 'pro');
+                                const savings = communityTier ? calculateSavings(communityTier.price, communityTier.yearlyPrice) : null;
+                                return savings ? (
+                                    <span className="ml-2 px-3 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-full">
+                                        Save {savings}%
+                                    </span>
+                                ) : null;
+                            })()
+                        )}
+                    </div>
+
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -129,11 +173,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                                 </h3>
                                 <div className="flex items-baseline gap-1 mb-4">
                                     <span className={`text-4xl font-black ${tier.highlighted ? 'text-white' : 'text-slate-900'}`}>
-                                        {tier.yearlyPrice || tier.price}
+                                        {isYearly && tier.yearlyPrice ? tier.yearlyPrice : tier.price}
                                     </span>
                                     {tier.period && (
                                         <span className={tier.highlighted ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}>
-                                            {tier.period}
+                                            {isYearly && tier.yearlyPrice ? '/Year' : tier.period}
                                         </span>
                                     )}
                                 </div>

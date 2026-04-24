@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gavel, AlertTriangle, ShieldCheck, Heart } from 'lucide-react';
+import { Ban, Shield, ShieldCheck, Heart, Share2 } from 'lucide-react';
 
 const TermsOfService: React.FC = () => {
     return (
@@ -20,7 +20,7 @@ const TermsOfService: React.FC = () => {
                             <Heart className="w-6 h-6 text-brand-600" /> 01. Intended Use
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is a tool for journalists, activists, and human rights defenders. We expect all users to use the platform in ways that respect human rights and the safety of others.
+                            Convene is a platform to facilitate and support secure communication, documentation, and coordination for individuals and groups engaged in human rights work, journalism, and civil society initiatives. By using Convene, you agree to conduct your activities in a manner that upholds the rights, safety, and dignity of others.
                         </p>
                     </section>
 
@@ -35,20 +35,50 @@ const TermsOfService: React.FC = () => {
 
                     <section>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <AlertTriangle className="w-6 h-6 text-brand-600" /> 03. Prohibited Conduct
+                            <Shield className="w-6 h-6 text-brand-600" /> 03. Human Rights Safeguard
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Users are prohibited from using Convene for illegal activities, harassment, or to knowingly compromise the security of the platform or its users.
+                           Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
+                        </p>
+                        <p className='text-slate-600 leading-relaxed text-lg'>Accordingly, these guidelines are not intended to prohibit, restrict, or limit:</p>
+                        <p className='text-slate-600 leading-relaxed text-lg'>
+                            <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
+                                <li>Freedom of  expression, speech or  assembly</li>
+                                <li>Documentation, investigation, or reporting of human rights concerns</li>
+                                <li>Communication and coordination of  civil society activities including non-violent action</li>
+                            </ul>
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <Gavel className="w-6 h-6 text-brand-600" /> 04. Open Source & Contributions
+                            <Ban className="w-6 h-6 text-brand-600" /> 04.  Prohibited Conduct
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a community-driven platform built by the RAL mission.
+                            You may not use Convene to:
                         </p>
+                        <p className='text-slate-600 leading-relaxed text-lg'>
+                            <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
+                                <li>Facilitate exploitation, coercion, or abuse, including human trafficking, forced labor, or sexual exploitation</li>
+                                <li>Promote or engage in harassment, intimidation, or targeted abuse</li>
+                                <li>Interfere with or undermine the security, integrity, or availability of the platform or other users’ access to it</li>
+                                <li>Distribute malware, conduct phishing, or engage in other activities intended to compromise systems or data</li>
+                                <li>Coordinate or support actions that violate internationally recognized human rights standards</li>
+                            </ul>
+                        </p>
+                        <p className="text-slate-600 leading-relaxed text-lg">
+                          In assessing potential misuse, Convene will prioritize internationally recognized human rights principles, including those reflected in frameworks such as the Universal Declaration of Human Rights
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                            <Share2 className="w-6 h-6 text-brand-600" /> 05. Open Source & Contributions
+                        </h2>
+                        <p className="text-slate-600 leading-relaxed text-lg">
+                           Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a rights-centered platform built in partnership with human rights defenders and digital security experts 
+                        </p>
+                        
                     </section>
 
                     <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-16 text-center">
