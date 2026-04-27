@@ -20,7 +20,7 @@ const TermsOfService: React.FC = () => {
                             <Heart className="w-6 h-6 text-brand-600" /> 01. Intended Use
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                        Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
+                            Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
                         </p>
                     </section>
 
@@ -29,36 +29,21 @@ const TermsOfService: React.FC = () => {
                             <ShieldCheck className="w-6 h-6 text-brand-600" /> 02. No Guarantees
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                        Convene recognizes that in some jurisdictions, human rights activities—including civil resistance , documentation of abuses, and communication among civil society actors—may be restricted or penalized under repressive  laws.
+                            Convene recognizes that in some jurisdictions, human rights activities—including civil resistance , documentation of abuses, and communication among civil society actors—may be restricted or penalized under repressive  laws.
                         </p>
                     </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <Shield className="w-6 h-6 text-brand-600" /> 03. Human Rights Safeguard
-                        </h2>
-                        <p className="text-slate-600 leading-relaxed text-lg">
-                        Convene recognizes that in some jurisdictions, human rights activities—including civil resistance , documentation of abuses, and communication among civil society actors—may be restricted or penalized under repressive  laws.
-                        </p>
-                        <p className='text-slate-600 leading-relaxed text-lg'>Accordingly, these guidelines are not intended to prohibit, restrict, or limit:</p>
-                        <p className='text-slate-600 leading-relaxed text-lg'>
-                            <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
-                                <li>Freedom of expression, speech or assembly</li>
-                                <li>Documentation, investigation, or reporting of human rights concerns</li>
-                                <li>Communication and coordination of civil society activities including non-violent action</li>
-                            </ul>
-                        </p>
-                    </section>
+
 
                     <section>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <Ban className="w-6 h-6 text-brand-600" /> 04.  Prohibited Conduct
+                            <Ban className="w-6 h-6 text-brand-600" /> 03.  Prohibited Conduct
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
                             You may not use Convene to:
                         </p>
                         <p className='text-slate-600 leading-relaxed text-lg'>
-                            <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
+                            <ul className="mt-4 space-y-2 list-disc pl-6 pb-4 text-slate-600">
                                 <li>Facilitate exploitation, coercion, or abuse, including human trafficking, forced labor, or sexual exploitation</li>
                                 <li>Promote or engage in harassment, intimidation, or targeted abuse</li>
                                 <li>Interfere with or undermine the security, integrity, or availability of the platform or other users’ access to it</li>
@@ -67,18 +52,18 @@ const TermsOfService: React.FC = () => {
                             </ul>
                         </p>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                        In assessing potential misuse, Convene will prioritize internationally recognized human rights principles, including those reflected in frameworks such as the Universal Declaration of Human Rights
+                            In assessing potential misuse, Convene will prioritize internationally recognized human rights principles, including those reflected in frameworks such as the Universal Declaration of Human Rights
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <Share2 className="w-6 h-6 text-brand-600" /> 05. Open Source & Contributions
+                            <Share2 className="w-6 h-6 text-brand-600" /> 04. Open Source & Contributions
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                        Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a rights-centered platform built in partnership with human rights defenders and digital security experts.
+                            Convene is an open-source project. Modification and redistribution are encouraged under our license. We are a rights-centered platform built in partnership with human rights defenders and digital security experts.
                         </p>
-                        
+
                     </section>
 
                     <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-16 text-center">

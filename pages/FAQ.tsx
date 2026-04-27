@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Shield, Users, Zap } from 'lucide-react';
 
-const FAQ: React.FC = () => {
+import { Page } from '../App';
+
+interface FAQProps {
+    onNavigate: (page: Page) => void;
+}
+
+const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const faqCategories = [
@@ -9,14 +15,16 @@ const FAQ: React.FC = () => {
             title: "General",
             icon: HelpCircle,
             questions: [
-               
+
                 {
                     q: "Can we self-host Convene?",
                     a: "Yes, our Community and Enterprise plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
                 },
                 {
                     q: "Is Convene really free?",
-                    a: "Yes, our basic ephemeral rooms are completely free. We also offer specialized plans for NGOs and activists to support our mission-driven work."
+                    a: <>
+                        Yes, our starter package gives you 24hrs of unlimited access to a secure, ephemeral room completely free. All your messages (older than 24 hours) in the room are deleted automatically along with the room. If you would like a new room, please contact us here [link to Contact form]. Note that we also offer specialized plans for individuals and organizations to support your  mission-driven work. Get started here. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Our plans</button>
+                    </>
                 },
                 {
                     q: "Do I need to create an account?",
@@ -30,13 +38,21 @@ const FAQ: React.FC = () => {
                     q: "Can I use it on my phone?",
                     a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
                 },
-                
+
             ]
         },
         {
             title: "Security",
             icon: Shield,
             questions: [
+                {
+                    q: "How is my data protected?",
+                    a: (
+                        <>
+                            We use Signal-grade End-to-End encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients. Read more <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Privacy Policy</button>
+                        </>
+                    )
+                },
                 {
                     q: "What happens if a room link is leaked?",
                     a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans"
@@ -45,7 +61,7 @@ const FAQ: React.FC = () => {
                     q: "Do you keep any logs?",
                     a: "We do not store any message logs, IP addresses, or metadata. Once a room is deleted (destroyed), all associated data is permanently wiped from our servers."
                 },
-                
+
             ]
         },
         {
@@ -56,14 +72,14 @@ const FAQ: React.FC = () => {
                     q: "Do I need to install an app?",
                     a: "No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required."
                 },
-                
+
                 {
                     q: "What is the participant limit?",
                     a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
                 }
             ]
         },
-     
+
     ];
 
     const toggleAccordion = (index: number) => {
@@ -133,10 +149,10 @@ const FAQ: React.FC = () => {
                     <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
                     <p className="text-slate-600 mb-8">We're here to help you stay safe and secure.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                            <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
-                                Contact Support
-                            </button>
-                       
+                        <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
+                            Contact Support
+                        </button>
+
                     </div>
                 </div>
             </div>
