@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ban, Shield, ShieldCheck, Heart, Share2 } from 'lucide-react';
+import { Ban, ShieldCheck, Heart, Share2 } from 'lucide-react';
 
 const TermsOfService: React.FC = () => {
     return (

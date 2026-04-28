@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle, Shield, Users, Zap } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Shield, Zap } from 'lucide-react';
 
 import { Page } from '../App';
 

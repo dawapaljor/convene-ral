@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Lock, EyeOff, Server, HardDrive, RefreshCcw, Search, Users, ExternalLink, Mail, Zap, Trash2, User, Recycle, RecycleIcon, Trash, ShieldEllipsis } from 'lucide-react';
+import { Shield, Lock, Server, HardDrive, RefreshCcw, Users, ExternalLink, Mail, Zap, Trash2, ShieldEllipsis } from 'lucide-react';
 
 interface SecurityProps {
     onContactUs: () => void;
