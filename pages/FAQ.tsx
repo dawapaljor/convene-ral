@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle, Shield, Zap } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Shield, Zap, Users } from 'lucide-react';
 
 import { Page } from '../App';
 
 interface FAQProps {
     onNavigate: (page: Page) => void;
+    onContactUs: () => void;
 }
 
-const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
+const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const faqCategories = [
@@ -23,13 +24,13 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                 {
                     q: "Is Convene really free?",
                     a: (<>
-                        Yes, our starter package gives you 24hrs of unlimited access to a secure, ephemeral room completely free. All your messages (older than 24 hours) in the room are deleted automatically along with the room. If you would like a new room, please contact us here [link to Contact form]. Note that we also offer specialized plans for individuals and organizations to support your  mission-driven work. Get started here. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Our plans</button>
+                        Yes, our starter package gives you 24hrs of unlimited access to a secure, ephemeral room completely free. All your messages (older than 24 hours) in the room are deleted automatically along with the room. If you would like a new room, please contact us <button onClick={(e) => { e.preventDefault(); onContactUs(); }} className="text-brand-600 hover:underline font-medium inline-flex items-center">here</button>. Note that we also offer specialized plans for individuals and organizations to support your  mission-driven work.
                     </>)
                 },
                 {
                     q: "Do I need to create an account?",
                     a: (<>
-                        No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get started</button>
+                        No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link. Get started <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">here.</button>
                     </>)
                 },
                 {
@@ -51,19 +52,19 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     q: "How is my data protected?",
                     a: (
                         <>
-                            We use Signal-grade End-to-End encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients. Read more <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Privacy Policy</button>
+                            We use Signal-grade End-to-End encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients. Read our provacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here.</button>
                         </>
                     )
                 },
                 {
                     q: "What happens if a room link is leaked?",
-                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans."
+                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our specialized plans."
                 },
                 {
                     q: "Do you keep any logs?",
                     a: (
                         <>
-                            We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers. <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Read More</button>
+                            We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers. Read our provacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">here.</button>
                         </>
                     )
                 },
@@ -78,7 +79,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     q: "Do I need to install an app?",
                     a: (
                         <>
-                            No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required.<button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get Started </button>
+                            No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required.Get Started <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here. </button>
                         </>
                     )
                 },
@@ -88,23 +89,27 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                 },
 
                 {
-                    q: "What is the participant limit?",
-                    a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
+                    q: "Is there a limit on number of participants?",
+                    a: (
+                        <>
+                            There is no limit on the number of participants. Our Community and Enterprise <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> plans </button> offer more robust features for larger teams and organizations.
+                        </>
+                    )
                 }
             ]
         },
 
         {
             title: "Non Profit Organizations and Community Groups",
-            icon: Zap,
+            icon: Users,
             questions: [
                 {
                     q: "How can my organization use Convene?",
-                    a: "Convene is ideal for your organization’s communication needs where your team needs access to a browser based ephemeral messaging system without sharing their personal identification. It is currently used by journalists, human rights defenders and digital security trainers. Our Enterprise plan provides dedicated support and advanced security features that you can customize based on your organization’s needs."
+                    a: "Convene is ideal for your organization’s communication needs where your team needs access to a browser based ephemeral messaging system without sharing their personal identification. It is currently used by journalists, human rights defenders and digital security trainers. Our specialized plans provides dedicated support and advanced security features that you can customize based on your organization’s needs."
                 },
                 {
                     q: "Can we self-host Convene?",
-                    a: "Yes, our Enterprise plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
+                    a: "Yes, our specialized plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
                 },
 
                 {
@@ -112,7 +117,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
                 },
                 {
-                    q: "Note: What happens if a room link is leaked?",
+                    q: " What happens if a room link is leaked?",
                     a: "Room links are as private as the platform you share it in. However, Convene has additional security and room moderation capabilities such as allowing the room admin to lock the room (ensuring no one joins after your trusted contact does), kick out any suspicious users, setting time period for disappearing messages, etc. In addition, Convene rooms are designed to support anonymity as each user is automatically given a random guest avatar and nickname."
                 },
 

@@ -85,7 +85,7 @@ const App: React.FC = () => {
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <About />}
         {currentPage === 'pricing' && <Pricing onNavigate={handleNavigate} onContactUs={handleContactUs} />}
-        {currentPage === 'faq' && <FAQ onNavigate={handleNavigate} />}
+        {currentPage === 'faq' && <FAQ onNavigate={handleNavigate} onContactUs={handleContactUs} />}
         {currentPage === 'features' && <FeaturesPage />}
         {currentPage === 'how-it-works' && <HowItWorks />}
         {currentPage === 'privacy' && <PrivacyPolicy />}
