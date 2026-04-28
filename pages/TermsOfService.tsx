@@ -29,7 +29,7 @@ const TermsOfService: React.FC = () => {
                             <ShieldCheck className="w-6 h-6 text-brand-600" /> 02. No Guarantees
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene recognizes that in some jurisdictions, human rights activities—including civil resistance , documentation of abuses, and communication among civil society actors—may be restricted or penalized under repressive  laws.
+                            Convene is provided "as is" without warranties. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
                         </p>
                     </section>
 
