@@ -27,6 +27,10 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     </>)
                 },
                 {
+                    q: "Is Convene available in other languages?",
+                    a: "Convene is available in multiple languages. Contact us to discuss your organization’s specific needs."
+                },
+                {
                     q: "Do I need to create an account?",
                     a: (<>
                         No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get started</button>
@@ -76,7 +80,11 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
             questions: [
                 {
                     q: "Do I need to install an app?",
-                    a: "No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required."
+                    a: (
+                        <>
+                            No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required.<button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get Started </button>
+                        </>
+                    )
                 },
                 {
                     q: "Can I use it on my phone?",
@@ -87,6 +95,31 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     q: "What is the participant limit?",
                     a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
                 }
+            ]
+        },
+
+        {
+            title: "Non Profit Organizations and Community Groups",
+            icon: Zap,
+            questions: [
+                {
+                    q: "How can my organization use Convene?",
+                    a: "Convene is ideal for your organization’s communication needs where your team needs access to a browser based ephemeral messaging system without sharing their personal identification. It is currently used by journalists, human rights defenders and digital security trainers. Our Enterprise plan provides dedicated support and advanced security features that you can customize based on your organization’s needs."
+                },
+                {
+                    q: "Can we self-host Convene?",
+                    a: "Yes, our Enterprise plan includes guidance and support for self-hosting Convene on your own infrastructure for maximum control."
+                },
+
+                {
+                    q: "What is the participant limit?",
+                    a: "Free rooms support up to 10 participants. Our Pro and NGO plans offer higher limits for larger teams and organizations."
+                },
+                {
+                    q: "Note: What happens if a room link is leaked?",
+                    a: "Room links are as private as the platform you share it in. However, Convene has additional security and room moderation capabilities such as allowing the room admin to lock the room (ensuring no one joins after your trusted contact does), kick out any suspicious users, setting time period for disappearing messages, etc. In addition, Convene rooms are designed to support anonymity as each user is automatically given a random guest avatar and nickname."
+                },
+
             ]
         },
 

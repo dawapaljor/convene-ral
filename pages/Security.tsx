@@ -15,11 +15,11 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                         <Shield className="w-3 h-3" />
                         Trusted by Rights Defenders
                     </div>
-                     <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
                         Privacy-Centered <span className="text-brand-600">Security</span>
                     </h1>
                     <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                        Convene creates places where you can be you with no strings attached—no personal phone numbers or email addresses are required.
+                        Convene is designed to protect the anonymity of every individual and minimize risk through its security features.
                     </p>
                 </div>
 
@@ -29,21 +29,21 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                         <Trash2 className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="font-bold text-slate-900 mb-2">Self-Destructing</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                        Easily delete rooms, wipe messages, or all information from the app with one tap.
+                            Easily delete rooms, wipe messages, or all information from the app with one tap.
                         </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                         <Users className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="font-bold text-slate-900 mb-2"> Private Connections</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                        Free to be you - we protect your identity. No email or phone number needed. Automated usernames promote anonymity.
+                            Free to be you - we protect your identity. No email or phone number needed. Automated usernames promote anonymity.
                         </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                         <ShieldEllipsis className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="font-bold text-slate-900 mb-2">Rights Centered</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                        Designed and deployed in collaboration with human rights defenders, digital security experts and rights-centered organizations.
+                            Designed and deployed in collaboration with human rights defenders, digital security experts and rights-centered organizations.
                         </p>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                         <h2 className="text-2xl font-bold text-slate-900 shrink-0">Serious About Security</h2>
                         <div className="h-px flex-grow bg-slate-100"></div>
                     </div>
-                    
+
                     <p className="text-slate-600 mb-12">
                         Convene is designed to ensure the safety of every individual. Our architecture is built to minimize risk and maximize protection in hostile environments.
                     </p>
@@ -112,7 +112,7 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
 
                 {/* Grid Section: Audits, Accountability, etc */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                     <div className="p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <div className="p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <RefreshCcw className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="text-lg font-bold mb-2">Communication & Auth</h3>
                         <p className="text-slate-600 text-sm leading-relaxed">
@@ -123,8 +123,8 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                         <ExternalLink className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="text-lg font-bold mb-2">Open & Accountable</h3>
                         <p className="text-slate-600 text-sm leading-relaxed">
-                            The code is open source under the AGPL v3.0, available on Gitlab under the “Keanu” codename. 
-                             <a href="https://gitlab.com/keanuapp/" target="_blank" rel="noopener noreferrer" className="text-brand-600 block mt-2 hover:underline">View on Gitlab &rarr;</a>
+                            The code is open source under the AGPL v3.0, available on Gitlab under the “Keanu” codename.
+                            <a href="https://gitlab.com/keanuapp/" target="_blank" rel="noopener noreferrer" className="text-brand-600 block mt-2 hover:underline">View on Gitlab &rarr;</a>
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl border border-slate-100 shadow-sm">
@@ -149,14 +149,14 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                 <div className="p-10 rounded-[2.5rem] bg-brand-600 text-white text-center relative overflow-hidden">
                     <h2 className="text-3xl font-bold mb-4 relative z-10">Make it your own.</h2>
                     <p className="text-brand-100 mb-8 max-w-xl mx-auto relative z-10">
-                    Whether you're an individual or global organization, we can customize Convene to suit your security and privacy needs.
+                        Whether you're an individual or global organization, we can customize Convene to suit your security and privacy needs.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-                         <button
+                        <button
                             type="button"
                             onClick={onContactUs}
                             className="bg-white text-brand-600 px-8 py-3 rounded-xl font-bold hover:bg-brand-50 transition-colors flex items-center gap-2"
-                         >
+                        >
                             <Mail className="w-4 h-4" /> Contact Us
                         </button>
                     </div>

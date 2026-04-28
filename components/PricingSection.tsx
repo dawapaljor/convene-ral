@@ -39,13 +39,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
             name: "Starter",
             price: "Free",
             period: "",
-            description: "For activists and individuals needing immediate, secure rooms.",
+            description: "For individuals needing an immediate secure room.",
             features: [
-                "Disappearing messages (24 hours) ",
+                "24 hour access to ephemeral room",
                 "End-to-End Encryption",
-                "Up to 10 participants",
                 "Browser-based (No install)",
-                "Basic file sharing (10MB)"
+                "Basic file sharing (10MB)",
+                "Disappearing messages"
             ],
             cta: "Get Started ",
             highlighted: false,
@@ -57,15 +57,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
             price: "$200",
             yearlyPrice: "$2000",
             period: "/Monthly",
-            description: "Dedicated resources for higher-impact missions and organizations.",
+            description: "Dedicated resource for organizations and groups",
             features: [
-                "Unlimited ephemeral rooms",
+                "Unlimited access to ephemeral rooms",
                 "Permanent rooms available",
-                "Priority Support",
+                "Community support",
                 "Advanced Security Features",
                 "Self-hosting guidance",
                 "Custom domain integration",
-                "Up to 50 participants"
             ],
             cta: "Get Started ",
             highlighted: true,
@@ -76,7 +75,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
             name: "Enterprise",
             price: "Custom",
             period: "",
-            description: "Scalable solutions for large teams and high-security requirements.",
+            description: "Scalable solutions for larger teams and those with (tailored/specific/unique/custom/individualized) security requirements.",
             features: [
                 "Admin Control Panel",
                 "Team Management",
@@ -107,7 +106,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                         Simple & Transparent
                     </div>
                     <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
-                        Get your own <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">Convene</span>
+                        Get your own <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">Convene</span>
                     </h1>
                     <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
                         Whether you're a single activist or a global organization, we have a plan to keep your communications private.
@@ -120,14 +119,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                         </span>
                         <button
                             onClick={() => setIsYearly(!isYearly)}
-                            className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${
-                                isYearly ? 'bg-brand-600' : 'bg-slate-300'
-                            }`}
+                            className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${isYearly ? 'bg-brand-600' : 'bg-slate-300'
+                                }`}
                         >
                             <div
-                                className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-transform duration-300 ${
-                                    isYearly ? 'translate-x-8' : 'translate-x-1'
-                                }`}
+                                className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-transform duration-300 ${isYearly ? 'translate-x-8' : 'translate-x-1'
+                                    }`}
                             ></div>
                         </button>
                         <span className={`text-sm font-semibold ${isYearly ? 'text-slate-900' : 'text-slate-500'}`}>
