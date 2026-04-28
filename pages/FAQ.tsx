@@ -22,13 +22,15 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                 },
                 {
                     q: "Is Convene really free?",
-                    a: <>
+                    a: (<>
                         Yes, our starter package gives you 24hrs of unlimited access to a secure, ephemeral room completely free. All your messages (older than 24 hours) in the room are deleted automatically along with the room. If you would like a new room, please contact us here [link to Contact form]. Note that we also offer specialized plans for individuals and organizations to support your  mission-driven work. Get started here. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Our plans</button>
-                    </>
+                    </>)
                 },
                 {
                     q: "Do I need to create an account?",
-                    a: "No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link."
+                    a: (<>
+                        No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get started</button>
+                    </>)
                 },
                 {
                     q: "How can my organization use Convene?",
@@ -55,11 +57,15 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                 },
                 {
                     q: "What happens if a room link is leaked?",
-                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans"
+                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our Pro plans."
                 },
                 {
                     q: "Do you keep any logs?",
-                    a: "We do not store any message logs, IP addresses, or metadata. Once a room is deleted (destroyed), all associated data is permanently wiped from our servers."
+                    a: (
+                        <>
+                            We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers. <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Read More</button>
+                        </>
+                    )
                 },
 
             ]
@@ -71,6 +77,10 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                 {
                     q: "Do I need to install an app?",
                     a: "No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required."
+                },
+                {
+                    q: "Can I use it on my phone?",
+                    a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
                 },
 
                 {
