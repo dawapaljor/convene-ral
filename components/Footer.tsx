@@ -37,11 +37,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
               <span className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Convene</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
-            An open-source product of <a href="https://rightsactionlab.org" className='hover:text-slate-600' target='_blank'>Rights Action Lab Inc.</a>, a non-profit 501(c)3 organization.
+              An open-source product of <a href="https://rightsactionlab.org" className='hover:text-slate-600' target='_blank'>Rights Action Lab Inc.</a>, a non-profit 501(c)3 organization.
             </p>
             <div className="text-sm text-slate-400 space-y-1">
               <p>Development by <strong><a href="https://guardianproject.info/" target="_blank" className='hover:text-slate-500'>Guardian Project</a></strong>.</p>
-              <p>Community Engagement by <strong><a href="https://tibcert.org" target='_blank'>TibCERT</a></strong> & <strong><a href="https://okthanks.com/" target='_blank'>OkThanks</a></strong>.</p>
+              <p>Community Engagement by <strong><a href="https://tibcert.org" target='_blank'>TibCERT</a></strong>.</p>
             </div>
           </div>
 

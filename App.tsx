@@ -11,10 +11,11 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Security from './pages/Security';
 import SignUp from './pages/SignUp';
+import NotFound from './pages/NotFound';
 import { DemoModal } from './components/DemoModal';
 import { ContactModal } from './components/ContactModal';
 
-export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security' | 'signup';
+export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security' | 'signup' | 'not-found';
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',
@@ -27,6 +28,7 @@ const PAGE_TO_PATH: Record<Page, string> = {
   terms: '/terms',
   security: '/security',
   signup: '/signup',
+  'not-found': '/404',
 };
 
 const PATH_TO_PAGE: Record<string, Page> = Object.entries(PAGE_TO_PATH).reduce(
@@ -37,7 +39,7 @@ const PATH_TO_PAGE: Record<string, Page> = Object.entries(PAGE_TO_PATH).reduce(
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(() => {
     const path = window.location.pathname;
-    return PATH_TO_PAGE[path] || 'home';
+    return PATH_TO_PAGE[path] || 'not-found';
   });
   const [selectedPlan, setSelectedPlan] = useState<string>('free');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -47,7 +49,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname;
-      setCurrentPage(PATH_TO_PAGE[path] || 'home');
+      setCurrentPage(PATH_TO_PAGE[path] || 'not-found');
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -90,9 +92,10 @@ const App: React.FC = () => {
         {currentPage === 'terms' && <TermsOfService />}
         {currentPage === 'security' && <Security onContactUs={handleContactUs} />}
         {currentPage === 'signup' && <SignUp onNavigate={handleNavigate} initialPlan={selectedPlan} />}
+        {currentPage === 'not-found' && <NotFound onNavigate={handleNavigate} />}
       </main>
       <Footer onNavigate={handleNavigate} onContactUs={handleContactUs} />
-      
+
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>

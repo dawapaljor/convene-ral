@@ -27,10 +27,6 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate }) => {
                     </>)
                 },
                 {
-                    q: "Is Convene available in other languages?",
-                    a: "Convene is available in multiple languages. Contact us to discuss your organization’s specific needs."
-                },
-                {
                     q: "Do I need to create an account?",
                     a: (<>
                         No. Convene is designed to be used without any signup or personal identifiers. Just create a room and share the link. <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center">Get started</button>
