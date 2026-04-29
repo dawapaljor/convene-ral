@@ -81,7 +81,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                 "Team Management",
                 "SLA and Support",
                 "Audit Logs (Optional privacy)",
-                "Dedicated Server Instance",
+                "Dedicated Server",
                 "White-label options",
                 "Custom security audits"
             ],
@@ -254,7 +254,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                 {/* Final CTA */}
                 <div className="mt-24 text-center">
                     <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
-                    <p className="text-slate-600 mb-10">Explore our documentation or reach out to our team of security experts.</p>
+                    <p className="text-slate-600 mb-10">Explore our <a href="https://docs.letsconvene.im/" target="_blank" className="text-brand-600 hover:text-brand-700 transition-colors">documentation</a> or reach out to our team of security experts.</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button
                             onClick={onContactUs}

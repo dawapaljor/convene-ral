@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
             </p>
             <div className="text-sm text-slate-400 space-y-1">
               <p>Development by <strong><a href="https://guardianproject.info/" target="_blank" className='hover:text-slate-500'>Guardian Project</a></strong>.</p>
-              <p>Community Engagement by <strong><a href="https://tibcert.org" target='_blank'>TibCERT</a></strong>.</p>
+              <p>Community Engagement & Support by <strong><a href="https://tibcert.org" target='_blank'>TibCERT</a></strong>.</p>
             </div>
           </div>
 

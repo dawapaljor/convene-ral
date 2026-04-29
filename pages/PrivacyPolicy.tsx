@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, EyeOff, Lock, Database } from 'lucide-react';
+import { EyeOff, Lock, Database } from 'lucide-react';
 
 const PrivacyPolicy: React.FC = () => {
     return (
@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
                         Privacy <span className="text-brand-600">Policy</span>
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                    We don't just protect your data; we ensure we never have it.
+                        We don't just protect your data; we ensure we never have it.
                     </p>
                 </div>
 
@@ -48,14 +48,7 @@ const PrivacyPolicy: React.FC = () => {
                         </p>
                     </section>
 
-                    <section>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                            <Shield className="w-6 h-6 text-brand-600" /> 04. Jurisdiction
-                        </h2>
-                        <p className="text-slate-600 leading-relaxed text-lg">
-                            As a project focused on human rights, we operate with maximum transparency. However, because we hold no user data, we have no information to provide to any third party or government entity.
-                        </p>
-                    </section>
+
 
                     <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-16">
                         <p className="text-sm text-slate-500 text-center italic">

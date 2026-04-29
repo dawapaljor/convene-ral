@@ -20,7 +20,7 @@ const TermsOfService: React.FC = () => {
                             <Heart className="w-6 h-6 text-brand-600" /> 01. Intended Use
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            Convene is provided "as is" without warranties of any kind. While our architecture is designed to support a high level of security, users should always use situational awareness when communicating in high-risk environments.
+                            Convene is a platform to facilitate and support secure communication, documentation, and coordination for individuals and groups engaged in human rights work, journalism, and civil society initiatives. By using Convene, you agree to conduct your activities in a manner that upholds the rights, safety, and dignity of others.
                         </p>
                     </section>
 
