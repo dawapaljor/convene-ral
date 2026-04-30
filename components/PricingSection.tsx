@@ -230,7 +230,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                                 Privacy is a Human Right, <br />Not a Feature.
                             </h2>
                             <p className="text-lg text-slate-300 leading-relaxed">
-                                Regardless of your plan, Convene never stores your logs, your keys, or your personal metadata. Our security model is mathematically proven to be zero-knowledge.
+                                Regardless of your plan, Convene never stores your logs, your keys, or your personal metadata.
                             </p>
                         </div>
 

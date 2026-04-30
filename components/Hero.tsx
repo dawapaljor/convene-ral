@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 onNavigate('pricing');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }} className="inline-flex items-center justify-center px-8 py-3.5 text-sm sm:text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto active:scale-95">
-                Get your own Convene <ArrowRight className="w-5 h-5 ml-2" />
+                Get Started <ArrowRight className="w-5 h-5 ml-2" />
               </button>
 
             </div>
