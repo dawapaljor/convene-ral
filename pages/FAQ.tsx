@@ -48,7 +48,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                     q: "How is my data protected?",
                     a: (
                         <>
-                            We use Signal-grade End-to-End encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients. Read our provacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here.</button>
+                            We use Signal-grade End-to-End encryption (E2EE). Your messages are encrypted on your device and can only be decrypted by the intended recipients. Read our privacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here.</button>
                         </>
                     )
                 },
@@ -85,7 +85,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                 },
 
                 {
-                    q: "Is there a limit on number of participants?",
+                    q: "Is there a limit on the number of participants?",
                     a: (
                         <>
                             There is no limit on the number of participants. Our Community and Enterprise <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> plans </button> offer more robust features for larger teams and organizations.

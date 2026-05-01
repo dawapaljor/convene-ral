@@ -14,13 +14,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* Abstract Colorful Blobs Background */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Giant Blue Blob (Left) */}
-        <div className="absolute -left-[30%] sm:-left-[15%] top-[-10%] w-[90vw] h-[90vw] lg:w-[70vw] lg:h-[80vw] max-w-[1200px] max-h-[1200px] bg-brand-600 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] "></div>
+        <div className="absolute -left-[30%] sm:-left-[15%] top-[-10%] w-[90vw] h-[90vw] lg:w-[70vw] lg:h-[80vw] max-w-[1200px] max-h-[1200px] bg-brand-100 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] "></div>
 
         {/* Vibrant Yellow Blob (Right Bottom) */}
         <div className="absolute -right-[20%] sm:-right-[10%] bottom-[-20%] w-[80vw] h-[80vw] lg:w-[60vw] lg:h-[60vw] max-w-[900px] max-h-[900px] bg-amber-400 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] "></div>
 
         {/* Vibrant Teal/Green Blob (Left Bottom) */}
-        <div className="absolute left-[-10%] sm:left-[10%] bottom-[-10%] w-[50vw] h-[50vw] lg:w-[35vw] lg:h-[35vw] max-w-[600px] max-h-[600px] bg-teal-400 rounded-[50%_50%_30%_70%/50%_50%_70%_30%] "></div>
+        <div className="absolute left-[-10%] sm:left-[10%] bottom-[-10%] w-[50vw] h-[50vw] lg:w-[35vw] lg:h-[35vw] max-w-[600px] max-h-[600px] bg-teal-300 rounded-[50%_50%_30%_70%/50%_50%_70%_30%] "></div>
 
         {/* Pink Accent Circle (Right Top) */}
         <div className="absolute right-[5%] sm:right-[15%] top-[10%] lg:top-[15%] w-[20vw] h-[20vw] lg:w-[10vw] lg:h-[10vw] max-w-[180px] max-h-[180px] bg-pink-500 rounded-full " style={{ animationDuration: '4s' }}></div>
