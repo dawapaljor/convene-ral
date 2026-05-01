@@ -68,7 +68,7 @@ const TermsOfService: React.FC = () => {
 
                     <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-16 text-center">
                         <p className="text-sm text-slate-500 italic mb-4">
-                            Last updated: March 10, 2026.
+                            Last updated:  April 30, 2026.
                         </p>
                         <p className="text-sm text-slate-400">
                             Convene is a project of Rights Action Lab, a non-profit 501(c)3 organization.
