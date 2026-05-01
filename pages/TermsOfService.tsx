@@ -52,7 +52,7 @@ const TermsOfService: React.FC = () => {
                             </ul>
                         </p>
                         <p className="text-slate-600 leading-relaxed text-lg">
-                            In assessing potential misuse, Convene will prioritize internationally recognized human rights principles, including those reflected in frameworks such as the Universal Declaration of Human Rights
+                            In assessing potential misuse, Convene will prioritize internationally recognized human rights principles, including those reflected in frameworks such as the Universal Declaration of Human Rights.
                         </p>
                     </section>
 

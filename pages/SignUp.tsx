@@ -55,15 +55,16 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                             </div>
                             <h2 className="text-3xl font-bold mb-4 tracking-tight">Deploy Convene</h2>
                             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                                Secure your organization's communications in minutes with our zero-knowledge infra.
+                                Secure your organization's communications in minutes.
                             </p>
 
                             <ul className="space-y-4">
                                 {[
                                     '100% End-to-End Encrypted',
-                                    'Zero Knowledge Storage',
+                                    'Disappearing messages',
                                     'Browser-Native (No Apps)',
-                                    'Self-Destructing Rooms'
+                                    'File Sharing',
+                                    'No account or phone number required'
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
                                         <Check className="w-4 h-4 text-brand-400" />

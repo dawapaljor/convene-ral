@@ -29,14 +29,14 @@ const Security: React.FC<SecurityProps> = ({ onContactUs }) => {
                         <Trash2 className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="font-bold text-slate-900 mb-2">Self-Destructing</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                            Easily delete rooms, wipe messages, or all information from the app with one tap.
+                            Easily delete rooms and wipe messages from the app with one tap.
                         </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                         <Users className="w-8 h-8 text-brand-600 mb-4" />
                         <h3 className="font-bold text-slate-900 mb-2"> Private Connections</h3>
                         <p className="text-sm text-slate-500 leading-relaxed">
-                            Free to be you - we protect your identity. No email or phone number needed. Automated usernames promote anonymity.
+                            Be free to be you. No email or phone number needed. Automated usernames promote anonymity and protect your identity.
                         </p>
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">

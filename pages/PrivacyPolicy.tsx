@@ -52,7 +52,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mt-16">
                         <p className="text-sm text-slate-500 text-center italic">
-                            Last updated: March 10, 2026. This policy is as simple as our architecture: if we don't have it, we can't lose it, and we can't share it.
+                            Last updated: April 30, 2026. This policy is as simple as our architecture: if we don't have it, we can't lose it, and we can't share it.
                         </p>
                     </div>
                 </div>

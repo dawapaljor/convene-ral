@@ -51,9 +51,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 drop-shadow-sm">
               Browser-based, ephemeral, and encrypted communication with Signal-grade security. Join or create a room to share information safely, even in censored environments.
             </p>
-            <p className='text-sm sm:text-sm text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 drop-shadow-sm'>
-              Built from the ground up to protect your privacy in the digital age.
-            </p>
+
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mx-auto lg:mx-0">
               <button onClick={() => {

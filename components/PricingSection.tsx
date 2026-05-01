@@ -107,7 +107,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate, onCo
                         Get your own <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-500">Convene</span>
                     </h1>
                     <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        Whether you're a single activist or a global organization, we have a plan to keep your communications private.
+                        Whether you're a individual activist or a global organization, we have a plan to keep your communications private.
                     </p>
 
                     {/* Monthly/Yearly Toggle */}

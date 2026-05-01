@@ -35,11 +35,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                 },
                 {
                     q: "How can my organization use Convene?",
-                    a: "Convene is ideal for sensitive field operations, coordination, and secure reporting. Our Community and Enterprise  plan provides dedicated support and advanced security features."
-                },
-                {
-                    q: "Can I use it on my phone?",
-                    a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
+                    a: "Convene is built to support secure private communications, information sharing and human rights documentation. It has many use cases – training platform, chat space during a gathering or conference, secure dropbox for sources to journalists, classroom aid, information sharing in heavily censored areas, and more. Our specialized plans provide dedicated support and advanced customizable security features, designed to meet the unique demands of your organization. "
                 },
 
             ]
@@ -58,13 +54,13 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                 },
                 {
                     q: "What happens if a room link is leaked?",
-                    a: "Room links are ephemeral and expire. However, you should only share links with trusted individuals. For added security, you can set custom expiry times in our specialized plans."
+                    a: "Room links are as private as the platform you share it in. However, Convene has additional security and room moderation capabilities such as allowing the room admin to lock the room (ensuring no one joins after your trusted contact does), kick out any suspicious users, set a time period for disappearing messages, etc. Convene rooms are designed to support anonymity as each user is automatically given a random guest avatar and nickname."
                 },
                 {
                     q: "Do you keep any logs?",
                     a: (
                         <>
-                            We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers. Read our provacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">here.</button>
+                            We do not store any message logs, IP addresses, or metadata. Once a room is deleted or expires, all associated data is permanently wiped from our servers. Read our privacy policy <button onClick={() => onNavigate('privacy')} className="text-brand-600 hover:underline font-medium inline-flex items-center">here.</button>
                         </>
                     )
                 },
@@ -79,13 +75,13 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                     q: "Do I need to install an app?",
                     a: (
                         <>
-                            No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required.Get Started <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here. </button>
+                            No. Convene works directly in your web browser on both desktop and mobile devices. No installation is required. Get Started <button onClick={() => onNavigate('pricing')} className="text-brand-600 hover:underline font-medium inline-flex items-center"> here. </button>
                         </>
                     )
                 },
                 {
                     q: "Can I use it on my phone?",
-                    a: "Absolutely. Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
+                    a: "Convene is optimized for mobile browsers, ensuring security and ease of use on the go."
                 },
 
                 {
@@ -193,7 +189,7 @@ const FAQ: React.FC<FAQProps> = ({ onNavigate, onContactUs }) => {
                     <h2 className="text-2xl font-bold text-slate-900 mb-4">Still have questions?</h2>
                     <p className="text-slate-600 mb-8">We're here to help you stay safe and secure.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
+                        <button onClick={(e) => { e.preventDefault(); onContactUs(); }} className="bg-brand-600 text-white font-bold py-3 px-8 rounded-full hover:bg-brand-700 transition-all shadow-lg shadow-brand-500/20">
                             Contact Support
                         </button>
 
