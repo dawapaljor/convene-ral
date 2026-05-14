@@ -2,14 +2,28 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { Logo } from './Logo';
+import { Page, NavLink } from '../types';
 
 interface NavbarProps {
-  onNavigate: (page: 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security') => void;
+  onNavigate: (page: Page) => void;
   onRequestDemo: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate, onRequestDemo }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink) => {
+    e.preventDefault();
+    onNavigate(link.page);
+    
+    if (link.targetId) {
+      // Delay slightly to allow page transition before scrolling
+      setTimeout(() => {
+        document.getElementById(link.targetId!)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -37,31 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onRequestDemo }) => {
                   <a
                     key={link.label}
                     href={link.href}
-                    onClick={(e) => {
-                      const id = link.label.toLowerCase().replace(/\s+/g, '-');
-                      const element = document.getElementById(id === 'how-it-works' ? id : id === 'features' ? 'security-features' : id);
-
-                      if (element) {
-                        e.preventDefault();
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      } else if (link.label === 'Features' || link.label === 'How it Works') {
-                        e.preventDefault();
-                        onNavigate('home');
-                        // Wait for page to change then scroll
-                        setTimeout(() => {
-                          const targetId = link.label === 'Features' ? 'security-features' : 'how-it-works';
-                          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-                        }, 100);
-                      } else if (link.label === 'Pricing') {
-                        e.preventDefault();
-                        onNavigate('pricing');
-                      } else if (link.label === 'FAQ') {
-                        e.preventDefault();
-                        onNavigate('faq');
-                      } else if (link.href === '#') {
-                        e.preventDefault();
-                      }
-                    }}
+                    onClick={(e) => handleNavClick(e, link)}
                     className="text-slate-600 hover:text-brand-600 hover:bg-brand-50 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                   >
                     {link.label}
@@ -104,31 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onRequestDemo }) => {
                   key={link.label}
                   href={link.href}
                   className="text-slate-600 hover:text-brand-600 block px-3 py-2 rounded-md text-base font-medium"
-                  onClick={(e) => {
-                    const id = link.label.toLowerCase().replace(/\s+/g, '-');
-                    const targetId = id === 'how-it-works' ? id : id === 'features' ? 'security-features' : id;
-                    const element = document.getElementById(targetId);
-
-                    if (element) {
-                      e.preventDefault();
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    } else if (link.label === 'Features' || link.label === 'How it Works') {
-                      e.preventDefault();
-                      onNavigate('home');
-                      setTimeout(() => {
-                        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else if (link.label === 'Pricing') {
-                      e.preventDefault();
-                      onNavigate('pricing');
-                    } else if (link.label === 'FAQ') {
-                      e.preventDefault();
-                      onNavigate('faq');
-                    } else if (link.href === '#') {
-                      e.preventDefault();
-                    }
-                    setIsOpen(false);
-                  }}
+                  onClick={(e) => handleNavClick(e, link)}
                 >
                   {link.label}
                 </a>

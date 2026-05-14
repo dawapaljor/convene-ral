@@ -26,3 +26,14 @@ export interface Testimonial {
   author: string;
   role?: string;
 }
+
+export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security' | 'signup' | 'not-found';
+
+export interface NavLink {
+  label: string;
+  page?: Page;
+  targetId?: string; // Optional element ID to scroll to on the target page
+  href: string; // The URL to show when hovered or copied
+  external?: boolean; // If true, opens in a new tab
+  isAction?: boolean; // If true, acts as a button (e.g. opens a modal)
+}

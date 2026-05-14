@@ -14,8 +14,7 @@ import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
 import { DemoModal } from './components/DemoModal';
 import { ContactModal } from './components/ContactModal';
-
-export type Page = 'home' | 'about' | 'pricing' | 'faq' | 'features' | 'how-it-works' | 'privacy' | 'terms' | 'security' | 'signup' | 'not-found';
+import { Page } from './types';
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',

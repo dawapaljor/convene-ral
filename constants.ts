@@ -1,4 +1,4 @@
-import { Message, MessageType, Testimonial, FeatureItem } from './types';
+import { Message, MessageType, Testimonial, FeatureItem, NavLink } from './types';
 import { Shield, Globe, Zap, Lock, Smartphone, UserX } from 'lucide-react';
 
 export const DEMO_MESSAGES: Message[] = [
@@ -35,13 +35,26 @@ export const DEMO_MESSAGES: Message[] = [
   }
 ];
 
-export const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'How it Works', href: '#' },
-  // { label: 'Pricing', href: '/pricing' },
-  { label: 'FAQ', href: '/faq' },
-  // { label: 'About Us', href: '/about' },
+export const NAV_LINKS: NavLink[] = [
+  { label: 'Features', page: 'home', targetId: 'security-features', href: '/#security-features' },
+  { label: 'How it Works', page: 'home', targetId: 'how-it-works', href: '/#how-it-works' },
+  { label: 'FAQ', page: 'faq', href: '/faq' },
 ];
+
+export const FOOTER_LINKS = {
+  platform: [
+    { label: 'How it Works', page: 'home', targetId: 'how-it-works', href: '/#how-it-works' },
+    { label: 'Features', page: 'home', targetId: 'security-features', href: '/#security-features' },
+    { label: 'FAQs', page: 'faq', href: '/faq' },
+    { label: 'Source Code', href: 'https://gitlab.com/keanuapp/keanuapp-weblite.git', external: true }
+  ] as NavLink[],
+  legal: [
+    { label: 'Privacy Policy', page: 'privacy', href: '/privacy' },
+    { label: 'Security', page: 'security', href: '/security' },
+    { label: 'Terms of Service', page: 'terms', href: '/terms' },
+    { label: 'Contact', href: '#', isAction: true }
+  ] as NavLink[]
+};
 
 export const TESTIMONIALS: Testimonial[] = [
   {

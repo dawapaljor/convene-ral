@@ -1,26 +1,31 @@
 import React from 'react';
 import { Logo } from './Logo';
+import { FOOTER_LINKS } from '../constants';
+import { Page, NavLink } from '../types';
 
 interface FooterProps {
-  onNavigate: (page: any) => void;
+  onNavigate: (page: Page) => void;
   onContactUs: () => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
-  const handleLinkClick = (e: React.MouseEvent, page: any, targetId?: string) => {
+  const handleLinkClick = (e: React.MouseEvent, link: NavLink) => {
+    if (link.external) return; // let browser handle it normally
+    
     e.preventDefault();
-    if (targetId) {
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        onNavigate('home');
-        setTimeout(() => {
-          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    } else {
-      onNavigate(page);
+    if (link.isAction) {
+      onContactUs();
+      return;
+    }
+    
+    if (link.page) {
+      onNavigate(link.page);
+    }
+    
+    if (link.targetId) {
+      setTimeout(() => {
+        document.getElementById(link.targetId!)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
   };
 
@@ -48,20 +53,36 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onContactUs }) => {
           <div>
             <h4 className="text-slate-900 font-semibold mb-4 text-base uppercase tracking-wider">Platform</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><a href="/how-it-works" onClick={(e) => handleLinkClick(e, 'home', 'how-it-works')} className="hover:text-brand-600 transition-colors">How it Works</a></li>
-              <li><a href="/features" onClick={(e) => handleLinkClick(e, 'home', 'security-features')} className="hover:text-brand-600 transition-colors">Features</a></li>
-              <li><a href="/faq" onClick={(e) => handleLinkClick(e, 'faq')} className="hover:text-brand-600 transition-colors">FAQs</a></li>
-              <li><a href="https://gitlab.com/keanuapp/keanuapp-weblite.git" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">Source Code</a></li>
+              {FOOTER_LINKS.platform.map(link => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="hover:text-brand-600 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="text-slate-900 font-semibold mb-4 text-base uppercase tracking-wider">Legal & Contact</h4>
             <ul className="space-y-3 text-sm text-slate-600">
-              <li><a href="/privacy" onClick={(e) => handleLinkClick(e, 'privacy')} className="hover:text-brand-600 transition-colors">Privacy Policy</a></li>
-              <li><a href="/security" onClick={(e) => handleLinkClick(e, 'security')} className="hover:text-brand-600 transition-colors">Security</a></li>
-              <li><a href="/terms" onClick={(e) => handleLinkClick(e, 'terms')} className="hover:text-brand-600 transition-colors">Terms of Service</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); onContactUs(); }} className="hover:text-brand-600 transition-colors">Contact</a></li>
+              {FOOTER_LINKS.legal.map(link => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    className="hover:text-brand-600 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
