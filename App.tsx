@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -44,6 +44,7 @@ const App: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<string>('free');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const isInitialMount = useRef(true);
 
   // Handle back/forward buttons
   useEffect(() => {
@@ -56,9 +57,21 @@ const App: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Scroll to top when page changes
+  // Scroll to top and handle Matomo pageview tracking when page changes
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Matomo SPA Tracking
+    if ((window as any)._paq) {
+      if (isInitialMount.current) {
+        // Skip tracking on initial mount if your index.html snippet already tracks it
+        isInitialMount.current = false;
+      } else {
+        (window as any)._paq.push(['setCustomUrl', window.location.pathname]);
+        (window as any)._paq.push(['setDocumentTitle', document.title]);
+        (window as any)._paq.push(['trackPageView']);
+      }
+    }
   }, [currentPage]);
 
   const handleNavigate = (page: Page, plan?: string) => {
