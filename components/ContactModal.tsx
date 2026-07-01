@@ -37,7 +37,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Contact Us</h2>
           <p className="text-slate-500 mb-6 text-sm">Have a question or need assistance? Our support team is here to help.</p>
 
-          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); alert('Message sent!'); }}>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); alert('Message sent!'); }} netlify name='contact'>
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1">Name</label>
               <input
