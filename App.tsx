@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound';
 import { DemoModal } from './components/DemoModal';
 import { ContactModal } from './components/ContactModal';
 import { Page } from './types';
+export type { Page };
 
 const PAGE_TO_PATH: Record<Page, string> = {
   home: '/',

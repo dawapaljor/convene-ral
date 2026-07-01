@@ -19,16 +19,33 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
         orgName: '',
         email: '',
     });
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSubmitted(true);
-        // Simulate API call
-        setTimeout(() => {
-            alert('Request received! We will contact you shortly.');
-            onNavigate('home');
-        }, 1500);
+        setStatus('submitting');
+
+        const submitData = new FormData(e.currentTarget);
+
+        try {
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(submitData as any).toString(),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setTimeout(() => {
+                    onNavigate('home');
+                }, 2000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+        }
     };
 
     return (
@@ -81,7 +98,18 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                     <div className="md:w-7/12 p-8 md:p-12">
                         <h3 className="text-2xl font-bold text-slate-900 mb-8">Get your own Convene</h3>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        {status === 'error' && (
+                            <div className="p-4 bg-rose-50 border border-rose-100 rounded-xl text-rose-600 text-sm font-medium mb-6 flex items-center gap-2 animate-in fade-in slide-in-from-top-1 duration-200">
+                                <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                                <span>Failed to complete sign up. Please try again.</span>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="sign-up">
+                            <input type="hidden" name="form-name" value="sign-up" />
+
                             {/* Org Name */}
                             <div>
                                 <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
@@ -91,6 +119,7 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                                 <input
                                     required
                                     type="text"
+                                    name="orgName"
                                     placeholder="e.g. Acme Rights"
                                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                                     value={formData.orgName}
@@ -107,6 +136,7 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
                                 <input
                                     required
                                     type="email"
+                                    name="email"
                                     placeholder="you@organisation.com"
                                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                                     value={formData.email}
@@ -153,16 +183,28 @@ const SignUp: React.FC<SignUpProps> = ({ onNavigate, initialPlan = 'free' }) => 
 
                             <button
                                 type="submit"
-                                disabled={isSubmitted}
-                                className={`w-full py-4 rounded-xl font-bold text-white transition-all shadow-lg active:scale-95 flex items-center justify-center gap-3 ${isSubmitted ? 'bg-emerald-500' : 'bg-brand-600 hover:bg-brand-700 shadow-brand-500/30'
-                                    }`}
+                                disabled={status === 'submitting' || status === 'success'}
+                                className={`w-full py-4 rounded-xl font-bold text-white transition-all shadow-lg active:scale-95 flex items-center justify-center gap-3 disabled:opacity-75 disabled:pointer-events-none ${
+                                    status === 'success' ? 'bg-emerald-500' : 'bg-brand-600 hover:bg-brand-700 shadow-brand-500/30'
+                                }`}
                             >
-                                {isSubmitted ? (
+                                {status === 'submitting' && (
+                                    <>
+                                        <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                        </svg>
+                                        <span>Completing Sign Up...</span>
+                                    </>
+                                )}
+                                {status === 'success' && (
                                     <>
                                         <Check size={20} />
-                                        Sent Successfully
+                                        <span>Sent Successfully</span>
                                     </>
-                                ) : 'Complete Sign Up'}
+                                )}
+                                {status === 'idle' && <span>Complete Sign Up</span>}
+                                {status === 'error' && <span>Retry Sign Up</span>}
                             </button>
                             <p className="text-[11px] text-center text-slate-400 mt-4 leading-relaxed">
                                 By clicking, you agree to our Terms of Service and Privacy Policy. <br /> No credit card required to start trial.

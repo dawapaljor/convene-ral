@@ -14,7 +14,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onRequestDemo }) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: NavLink) => {
     e.preventDefault();
-    onNavigate(link.page);
+    if (link.page) {
+      onNavigate(link.page);
+    }
     
     if (link.targetId) {
       // Delay slightly to allow page transition before scrolling

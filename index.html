@@ -99,6 +99,27 @@
 
 <body>
 
+  <!-- Hidden forms for Netlify form detection -->
+  <form name="demo-request" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="organization" />
+    <textarea name="comment"></textarea>
+  </form>
+
+  <form name="contact" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="organization" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <form name="sign-up" data-netlify="true" hidden>
+    <input type="text" name="orgName" />
+    <input type="email" name="email" />
+    <input type="text" name="plan" />
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
